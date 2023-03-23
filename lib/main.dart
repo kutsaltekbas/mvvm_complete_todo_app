@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'core/constants/app/app_constants.dart';
 import 'core/init/lang/language_manager.dart';
 import 'core/init/notifier/application_provider.dart';
+import 'view/login screen/view/login_view.dart';
 import 'view/splash screen/view/splash_screen_view.dart';
 
 Future<void> main() async {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            home: SplashScreenView(),
+            home: LoginView(),
           );
         });
   }

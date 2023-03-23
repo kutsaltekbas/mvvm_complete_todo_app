@@ -76,118 +76,16 @@ class LoginView extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(30.w, 60.h, 30.w, 10.h),
-                              child: TextField(
-                                cursorColor: AppThemeLight
-                                    .instance.theme.colorScheme.primary,
-                                decoration: InputDecoration(
-                                    prefixIconColor: AppThemeLight
-                                        .instance.theme.colorScheme.primary,
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Colors.transparent)),
-                                    focusColor: AppThemeLight
-                                        .instance.theme.colorScheme.primary,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: AppThemeLight
-                                            .instance.theme.colorScheme.primary,
-                                      ),
-                                    ),
-                                    prefixIcon: Icon(Icons.person),
-                                    filled: true,
-                                    fillColor: AppThemeLight
-                                        .instance.theme.colorScheme.surface,
-                                    hintText: LocaleKeys.login_email.tr(),
-                                    hintStyle:
-                                        TextStyle(fontStyle: FontStyle.italic)),
-                              ),
-                            ),
-                            Padding(
-                                padding:
-                                    EdgeInsets.fromLTRB(30.w, 10.h, 30.w, 10.h),
-                                child: TextField(
-                                  obscureText: true,
-                                  cursorColor: AppThemeLight
-                                      .instance.theme.colorScheme.primary,
-                                  decoration: InputDecoration(
-                                      prefixIconColor: AppThemeLight
-                                          .instance.theme.colorScheme.primary,
-                                      enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent)),
-                                      focusColor: AppThemeLight
-                                          .instance.theme.colorScheme.primary,
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: AppThemeLight.instance.theme
-                                              .colorScheme.primary,
-                                        ),
-                                      ),
-                                      prefixIcon: Icon(Icons.lock),
-                                      suffixIcon: Icon(Icons.remove_red_eye),
-                                      filled: true,
-                                      fillColor: AppThemeLight
-                                          .instance.theme.colorScheme.surface,
-                                      hintText: LocaleKeys.login_password.tr(),
-                                      hintStyle: TextStyle(
-                                          fontStyle: FontStyle.italic)),
-                                )),
-                            Padding(
-                              padding: EdgeInsets.only(right: 25.w),
-                              child: GestureDetector(
-                                onTap: () {},
-                                child: Text(
-                                  LocaleKeys.login_forgotText.tr(),
-                                  style: TextStyle(
-                                      color: AppThemeLight
-                                          .instance.theme.colorScheme.primary,
-                                      fontSize: 13.h),
-                                ),
-                              ),
-                            )
+                            emailTextField(viewmodel),
+                            passwordTextField(viewmodel),
+                            forgotPasswordButton(viewmodel)
                           ],
                         ),
                         SizedBox(
                           height: 150.h,
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.w, vertical: 10.h),
-                          width: 300.w,
-                          height: 70.h,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppThemeLight
-                                      .instance.theme.colorScheme.primary,
-                                  elevation: 3,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20))),
-                              onPressed: () {},
-                              child: Text(
-                                LocaleKeys.login_login.tr(),
-                                style: TextStyle(fontSize: 20.sp),
-                              )),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(LocaleKeys.login_dontAccount.tr() + " "),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Text(
-                                LocaleKeys.login_signUp.tr(),
-                                style: TextStyle(
-                                    color: AppThemeLight
-                                        .instance.theme.colorScheme.primary,
-                                    fontStyle: FontStyle.italic),
-                              ),
-                            ),
-                          ],
-                        ),
+                        loginButton(viewmodel),
+                        signUpButton(viewmodel),
                         SizedBox(
                           height: 10.h,
                         )
@@ -200,6 +98,111 @@ class LoginView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Row signUpButton(LoginViewModel viewmodel) {
+    return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(LocaleKeys.login_dontAccount.tr() + " "),
+                          GestureDetector(
+                            onTap: viewmodel.signUp,
+                            child: Text(
+                              LocaleKeys.login_signUp.tr(),
+                              style: TextStyle(
+                                  color: AppThemeLight
+                                      .instance.theme.colorScheme.primary,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                          ),
+                        ],
+                      );
+  }
+
+  Container loginButton(LoginViewModel viewmodel) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      width: 300.w,
+      height: 70.h,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20))),
+          onPressed: viewmodel.login,
+          child: Text(
+            LocaleKeys.login_login.tr(),
+            style: TextStyle(fontSize: 20.sp),
+          )),
+    );
+  }
+
+  Padding forgotPasswordButton(LoginViewModel viewmodel) {
+    return Padding(
+      padding: EdgeInsets.only(right: 25.w),
+      child: GestureDetector(
+        onTap: viewmodel.forgotPasswordFunc,
+        child: Text(
+          LocaleKeys.login_forgotText.tr(),
+          style: TextStyle(
+              color: AppThemeLight.instance.theme.colorScheme.primary,
+              fontSize: 13.h),
+        ),
+      ),
+    );
+  }
+
+  Padding passwordTextField(LoginViewModel viewmodel) {
+    return Padding(
+        padding: EdgeInsets.fromLTRB(30.w, 10.h, 30.w, 10.h),
+        child: TextField(
+          controller: viewmodel.passwordController,
+          obscureText: true,
+          cursorColor: AppThemeLight.instance.theme.colorScheme.primary,
+          decoration: InputDecoration(
+              prefixIconColor: AppThemeLight.instance.theme.colorScheme.primary,
+              enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.transparent)),
+              focusColor: AppThemeLight.instance.theme.colorScheme.primary,
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppThemeLight.instance.theme.colorScheme.primary,
+                ),
+              ),
+              prefixIcon: Icon(Icons.lock),
+              suffixIcon: Icon(Icons.remove_red_eye),
+              filled: true,
+              fillColor: AppThemeLight.instance.theme.colorScheme.surface,
+              hintText: LocaleKeys.login_password.tr(),
+              hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+        ));
+  }
+
+  Padding emailTextField(LoginViewModel viewmodel) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(30.w, 60.h, 30.w, 10.h),
+      child: TextField(
+        controller: viewmodel.emailController,
+        cursorColor: AppThemeLight.instance.theme.colorScheme.primary,
+        decoration: InputDecoration(
+            prefixIconColor: AppThemeLight.instance.theme.colorScheme.primary,
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent)),
+            focusColor: AppThemeLight.instance.theme.colorScheme.primary,
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppThemeLight.instance.theme.colorScheme.primary,
+              ),
+            ),
+            prefixIcon: Icon(Icons.person),
+            filled: true,
+            fillColor: AppThemeLight.instance.theme.colorScheme.surface,
+            hintText: LocaleKeys.login_email.tr(),
+            hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+      ),
     );
   }
 

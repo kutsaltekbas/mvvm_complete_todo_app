@@ -9,9 +9,11 @@
         "email": "Email",
         "password": "Password",
         "forgotText": "Forgot Password?",
-        "login": "Login",
+        "login": "Sign In",
         "dontAccount": "Dont have account?",
-        "orConnectWith":"or connect with"
+        "orConnectWith":"or connect with",
+        "welcomeBack": "Welcome Back",
+        "signUp":"Sign Up"
     },
     "home": {
         "build": {

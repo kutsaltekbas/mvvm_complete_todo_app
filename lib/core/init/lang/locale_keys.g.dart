@@ -12,6 +12,8 @@ abstract class  LocaleKeys {
   static const login_login = 'login.login';
   static const login_dontAccount = 'login.dontAccount';
   static const login_orConnectWith = 'login.orConnectWith';
+  static const login_welcomeBack = 'login.welcomeBack';
+  static const login_signUp = 'login.signUp';
   static const login = 'login';
   static const home_build_tabbar_tab1 = 'home.build.tabbar.tab1';
   static const home_build_tabbar_tab2 = 'home.build.tabbar.tab2';
