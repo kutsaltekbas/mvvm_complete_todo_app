@@ -70,7 +70,7 @@ class AppThemeLight extends AppTheme {
         headline3: TextStyle(
           fontSize: 24.sp,
           fontWeight: FontWeight.w400,
-          color: _colorSchemeLight.onBackground,
+          color: _colorSchemeLight.background,
         ),
         headline4: TextStyle(
           fontSize: 18.sp,
