@@ -1,7 +1,7 @@
 {
     "splash": {
         "welcome": "WELCOME",
-        "todo":"TO DO"
+        "todo": "TO DO"
     },
     "login": {
         "tab1": "Login",
@@ -11,9 +11,9 @@
         "forgotText": "Forgot Password?",
         "login": "Sign In",
         "dontAccount": "Dont have account?",
-        "orConnectWith":"or connect with",
-        "welcomeBack": "Welcome Back",
-        "signUp":"Sign Up"
+        "orConnectWith": "or connect with",
+        "welcomeBack": "Welcome\nBack",
+        "signUp": "Sign Up"
     },
     "home": {
         "build": {

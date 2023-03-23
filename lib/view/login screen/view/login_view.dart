@@ -49,12 +49,29 @@ class LoginView extends StatelessWidget {
                           onPressed: () {}),
                     ),
                   ),
-                  welcomeBackText(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      welcomeBackText(),
+                      Padding(
+                        padding: EdgeInsets.only(right: 25.w),
+                        child: Container(
+                          width: 150.w,
+                          height: 150.h,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("asset/image/todo.png"),
+                                  fit: BoxFit.none,
+                                  scale: 4)),
+                        ),
+                      )
+                    ],
+                  ),
                   SizedBox(
                     height: 80.h,
                   ),
                   Container(
-                    width: 1080.w,
+                    width: 390.w,
                     height: 500.h,
                     decoration: BoxDecoration(
                       boxShadow: <BoxShadow>[
@@ -103,22 +120,21 @@ class LoginView extends StatelessWidget {
 
   Row signUpButton(LoginViewModel viewmodel) {
     return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(LocaleKeys.login_dontAccount.tr() + " "),
-                          GestureDetector(
-                            onTap: viewmodel.signUp,
-                            child: Text(
-                              LocaleKeys.login_signUp.tr(),
-                              style: TextStyle(
-                                  color: AppThemeLight
-                                      .instance.theme.colorScheme.primary,
-                                  fontStyle: FontStyle.italic),
-                            ),
-                          ),
-                        ],
-                      );
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(LocaleKeys.login_dontAccount.tr() + " "),
+        GestureDetector(
+          onTap: viewmodel.signUp,
+          child: Text(
+            LocaleKeys.login_signUp.tr(),
+            style: TextStyle(
+                color: AppThemeLight.instance.theme.colorScheme.primary,
+                fontStyle: FontStyle.italic),
+          ),
+        ),
+      ],
+    );
   }
 
   Container loginButton(LoginViewModel viewmodel) {
@@ -208,7 +224,7 @@ class LoginView extends StatelessWidget {
 
   Widget welcomeBackText() {
     return Padding(
-      padding: EdgeInsets.all(15.w),
+      padding: EdgeInsets.fromLTRB(15.w, 30.h, 5.w, 10.h),
       child: Text(
         LocaleKeys.login_welcomeBack.tr(),
         maxLines: 2,
