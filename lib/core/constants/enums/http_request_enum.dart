@@ -1,0 +1,3 @@
+enum HttpTypes{
+  GET,POST
+}

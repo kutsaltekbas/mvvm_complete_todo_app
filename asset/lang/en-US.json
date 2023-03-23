@@ -1,0 +1,42 @@
+{
+    "splash": {
+        "welcome": "WELCOME",
+        "todo":"TO DO"
+    },
+    "login": {
+        "tab1": "Login",
+        "tab2": "SignUp",
+        "email": "Email",
+        "password": "Password",
+        "forgotText": "Forgot Password?",
+        "login": "Login",
+        "dontAccount": "Dont have account?",
+        "orConnectWith":"or connect with"
+    },
+    "home": {
+        "build": {
+            "tabbar": {
+                "tab1": "Latest",
+                "tab2": "Decorative",
+                "tab3": "Music",
+                "tab4": "Style"
+            },
+            "subTitle": "Recommended"
+        },
+        "setting": {
+            "title": "Settings",
+            "about": {
+                "title": "About Project",
+                "contribitions": "Project Contributors"
+            },
+            "core": {
+                "title": "Project Core",
+                "themeTitle": "Theme Change",
+                "themeDesc": "You can change applicaton theme.",
+                "langTitle": "Language Change",
+                "langDesc": "You can change applicaton language."
+            },
+            "exit": "Exit"
+        }
+    }
+}
