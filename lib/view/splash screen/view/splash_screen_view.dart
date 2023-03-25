@@ -7,6 +7,7 @@ import 'package:mvvm_complete_todo_app/core/init/cache/locale_manager.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/language_manager.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/locale_keys.g.dart';
 import '../../../core/base/view/base_view.dart';
+import '../../../core/init/theme/app_theme_light.dart';
 import '../viewmodel/splash_screen_viewmodel.dart';
 
 class SplashScreenView extends StatelessWidget {
@@ -22,20 +23,30 @@ class SplashScreenView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          backgroundColor: context.colorScheme.background,
+          backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 LocaleKeys.splash_todo.tr(),
-                style: context.theme.textTheme.headlineLarge,
+                style: TextStyle(
+                    color: AppThemeLight.instance.theme.colorScheme.surface,
+                    fontSize: 48.sp,
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                          color: Colors.black12,
+                          offset: Offset(0, 5),
+                          blurRadius: 5)
+                    ]),
               ),
               SizedBox(
                 height: 30.h,
               ),
               Center(
                 child: CircularProgressIndicator(
-                  color: context.colorScheme.onPrimaryContainer,
+                  color:
+                      AppThemeLight.instance.theme.colorScheme.primaryContainer,
                 ),
               ),
             ],
