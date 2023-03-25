@@ -45,8 +45,8 @@ class AppThemeLight extends AppTheme {
         secondaryContainer: Color(0xFFE5E5E5), //
         onTertiaryContainer: Color(0xffDADADC), //
         onErrorContainer: Color(0xffffcc86), //
-        inversePrimary: Color(0xff40a3ff),
-        inverseSurface: Color(0xffadd328),
+        inversePrimary: Color(0xFFDB4437),
+        inverseSurface: Color(0xff4267B2),
         onPrimaryContainer: Color(0xff024786),
       );
 

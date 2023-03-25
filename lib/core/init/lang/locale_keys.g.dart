@@ -4,6 +4,12 @@ abstract class  LocaleKeys {
   static const splash_welcome = 'splash.welcome';
   static const splash_todo = 'splash.todo';
   static const splash = 'splash';
+  static const onBoard_title = 'onBoard.title';
+  static const onBoard_subtitle = 'onBoard.subtitle';
+  static const onBoard_facebookLogin = 'onBoard.facebookLogin';
+  static const onBoard_googleLogin = 'onBoard.googleLogin';
+  static const onBoard_emailLogin = 'onBoard.emailLogin';
+  static const onBoard = 'onBoard';
   static const login_tab1 = 'login.tab1';
   static const login_tab2 = 'login.tab2';
   static const login_email = 'login.email';

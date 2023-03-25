@@ -3,6 +3,13 @@
         "welcome": "WELCOME",
         "todo": "TO DO"
     },
+    "onBoard": {
+        "title": "Take notes everywhere",
+        "subtitle": "easy way to take notes for your work.",
+        "facebookLogin": "Login with facebook",
+        "googleLogin": "Login with google",
+        "emailLogin": "Login with email"
+    },
     "login": {
         "tab1": "Login",
         "tab2": "SignUp",
