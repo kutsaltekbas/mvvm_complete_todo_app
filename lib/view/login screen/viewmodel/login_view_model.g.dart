@@ -72,6 +72,17 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
   }
 
   @override
+  void returnOnboard() {
+    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction(
+        name: '_LoginViewModelBase.returnOnboard');
+    try {
+      return super.returnOnboard();
+    } finally {
+      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void login() {
     final _$actionInfo = _$_LoginViewModelBaseActionController.startAction(
         name: '_LoginViewModelBase.login');

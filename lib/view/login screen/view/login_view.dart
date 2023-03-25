@@ -32,83 +32,12 @@ class LoginView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10.h, 40.h, 0, 0),
-                    child: SizedBox(
-                      height: 50.h,
-                      width: 50.h,
-                      child: FloatingActionButton(
-                          backgroundColor:
-                              AppThemeLight.instance.theme.colorScheme.surface,
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: AppThemeLight
-                                .instance.theme.colorScheme.primary,
-                            size: 30.w,
-                          ),
-                          onPressed: () {}),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      welcomeBackText(),
-                      Padding(
-                        padding: EdgeInsets.only(right: 25.w),
-                        child: Container(
-                          width: 150.w,
-                          height: 150.h,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("asset/image/todo.png"),
-                                  fit: BoxFit.none,
-                                  scale: 4)),
-                        ),
-                      )
-                    ],
-                  ),
+                  backButton(viewmodel),
+                  topScreen(),
                   SizedBox(
                     height: 80.h,
                   ),
-                  Container(
-                    width: 390.w,
-                    height: 500.h,
-                    decoration: BoxDecoration(
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                            blurStyle: BlurStyle.normal,
-                            color: Colors.black12,
-                            offset: Offset(0, 5),
-                            blurRadius: 20.h,
-                            spreadRadius: 10.h)
-                      ],
-                      color: context.colorScheme.surface,
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(30)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            emailTextField(viewmodel),
-                            passwordTextField(viewmodel),
-                            forgotPasswordButton(viewmodel)
-                          ],
-                        ),
-                        SizedBox(
-                          height: 150.h,
-                        ),
-                        loginButton(viewmodel),
-                        signUpButton(viewmodel),
-                        SizedBox(
-                          height: 10.h,
-                        )
-                      ],
-                    ),
-                  )
+                  bottomScreen(context, viewmodel)
                 ],
               ),
             ),
@@ -116,6 +45,93 @@ class LoginView extends StatelessWidget {
         );
       },
     );
+  }
+
+  Padding backButton(LoginViewModel viewmodel) {
+    return Padding(
+                  padding: EdgeInsets.fromLTRB(10.h, 40.h, 0, 0),
+                  child: SizedBox(
+                    height: 50.h,
+                    width: 50.h,
+                    child: FloatingActionButton(
+                        backgroundColor:
+                            AppThemeLight.instance.theme.colorScheme.surface,
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: AppThemeLight
+                              .instance.theme.colorScheme.primary,
+                          size: 30.w,
+                        ),
+                        onPressed: viewmodel.returnOnboard),
+                  ),
+                );
+  }
+
+  Row topScreen() {
+    return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    welcomeBackText(),
+                    userPng()
+                  ],
+                );
+  }
+
+  Padding userPng() {
+    return Padding(
+                      padding: EdgeInsets.only(right: 25.w),
+                      child: Container(
+                        width: 150.w,
+                        height: 150.h,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("asset/image/todo.png"),
+                                fit: BoxFit.none,
+                                scale: 4)),
+                      ),
+                    );
+  }
+
+  Container bottomScreen(BuildContext context, LoginViewModel viewmodel) {
+    return Container(
+                  width: 390.w,
+                  height: 500.h,
+                  decoration: BoxDecoration(
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          blurStyle: BlurStyle.normal,
+                          color: Colors.black12,
+                          offset: Offset(0, 5),
+                          blurRadius: 20.h,
+                          spreadRadius: 10.h)
+                    ],
+                    color: context.colorScheme.surface,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(30)),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          emailTextField(viewmodel),
+                          passwordTextField(viewmodel),
+                          forgotPasswordButton(viewmodel)
+                        ],
+                      ),
+                      SizedBox(
+                        height: 150.h,
+                      ),
+                      loginButton(viewmodel),
+                      signUpButton(viewmodel),
+                      SizedBox(
+                        height: 10.h,
+                      )
+                    ],
+                  ),
+                );
   }
 
   Row signUpButton(LoginViewModel viewmodel) {
