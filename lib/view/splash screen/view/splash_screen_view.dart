@@ -27,32 +27,40 @@ class SplashScreenView extends StatelessWidget {
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                LocaleKeys.splash_todo.tr(),
-                style: TextStyle(
-                    color: AppThemeLight.instance.theme.colorScheme.surface,
-                    fontSize: 48.sp,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      Shadow(
-                          color: Colors.black12,
-                          offset: Offset(0, 5),
-                          blurRadius: 5)
-                    ]),
-              ),
+              title(),
               SizedBox(
                 height: 30.h,
               ),
-              Center(
-                child: CircularProgressIndicator(
-                  color:
-                      AppThemeLight.instance.theme.colorScheme.primaryContainer,
-                ),
-              ),
+              indicator(),
             ],
           ),
         );
       },
     );
+  }
+
+  Center indicator() {
+    return Center(
+              child: CircularProgressIndicator(
+                color:
+                    AppThemeLight.instance.theme.colorScheme.primaryContainer,
+              ),
+            );
+  }
+
+  Text title() {
+    return Text(
+              LocaleKeys.splash_todo.tr(),
+              style: TextStyle(
+                  color: AppThemeLight.instance.theme.colorScheme.surface,
+                  fontSize: 48.sp,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                        color: Colors.black12,
+                        offset: Offset(0, 5),
+                        blurRadius: 5)
+                  ]),
+            );
   }
 }
