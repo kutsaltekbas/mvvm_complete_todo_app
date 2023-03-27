@@ -23,6 +23,32 @@
         "signUp": "Sign Up"
     },
     "home": {
+        "card1": {
+            "title": "Show Tasks",
+            "subtitle": "go on you're doing good"
+        },
+        "card2": {
+            "title": "Add task"
+        },
+        "heading2": {
+            "headline1": "Add custom task "
+        },
+        "card.3.0": {
+            "title": "Daily routine",
+            "subtitle": "to improve your time management"
+        },
+        "card.3.1": {
+            "title": "School",
+            "subtitle": "don't forget your homeworks"
+        },
+        "card.3.2": {
+            "title": "Work",
+            "subtitle": "never miss your meetings"
+        },
+        "card.3.3": {
+            "title": "Bills",
+            "subtitle": "you always need to use electricity"
+        },
         "build": {
             "tabbar": {
                 "tab1": "Latest",
