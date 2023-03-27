@@ -22,7 +22,10 @@ abstract class  LocaleKeys {
   static const login_signUp = 'login.signUp';
   static const login = 'login';
   static const task_taskListTitle = 'task.taskListTitle';
+  static const task_taskTitle = 'task.taskTitle';
   static const task = 'task';
+  static const taskPage_addTastTitle = 'taskPage.addTastTitle';
+  static const taskPage = 'taskPage';
   static const home_card1_title = 'home.card1.title';
   static const home_card1_subtitle = 'home.card1.subtitle';
   static const home_card1 = 'home.card1';

@@ -23,7 +23,11 @@
         "signUp": "Sign Up"
     },
     "task": {
-        "taskListTitle": "Your Tasks"
+        "taskListTitle": "Your Tasks",
+        "taskTitle": "Title"
+    },
+    "taskPage": {
+        "addTastTitle": "New Task"
     },
     "home": {
         "card1": {

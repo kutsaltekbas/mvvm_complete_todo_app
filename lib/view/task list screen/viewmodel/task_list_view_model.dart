@@ -10,6 +10,7 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
 @observable
 int dataLength = 50;
 
+
 @observable
 bool isLoading = false;
 
