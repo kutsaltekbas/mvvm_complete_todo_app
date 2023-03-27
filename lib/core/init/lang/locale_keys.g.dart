@@ -21,6 +21,8 @@ abstract class  LocaleKeys {
   static const login_welcomeBack = 'login.welcomeBack';
   static const login_signUp = 'login.signUp';
   static const login = 'login';
+  static const task_taskListTitle = 'task.taskListTitle';
+  static const task = 'task';
   static const home_card1_title = 'home.card1.title';
   static const home_card1_subtitle = 'home.card1.subtitle';
   static const home_card1 = 'home.card1';

@@ -22,6 +22,9 @@
         "welcomeBack": "Welcome\nBack",
         "signUp": "Sign Up"
     },
+    "task": {
+        "taskListTitle": "Your Tasks"
+    },
     "home": {
         "card1": {
             "title": "Show Tasks",
