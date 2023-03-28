@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/locale_keys.g.dart';
-import 'package:mvvm_complete_todo_app/core/init/theme/app_theme_light.dart';
 import '../../../core/base/view/base_view.dart';
+import '../../../core/init/theme/app_theme_light.dart';
 import '../viewmodel/task_list_view_model.dart';
 
 class TaskListView extends StatelessWidget {
@@ -20,97 +20,118 @@ class TaskListView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-              onPressed: viewmodel.returnHomePage,
-              icon: Icon(Icons.arrow_back_ios_new_rounded),
-              color: AppThemeLight.instance.theme.colorScheme.primary,
+          backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+          body: SafeArea(
+            child: Column(
+              children: [
+                backButtonAndTitle(context, viewmodel),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: viewmodel.listviewlength,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: context.paddingNormal,
+                          child: Container(
+                            width: context.width,
+                            height: 250.h,
+                            decoration: BoxDecoration(
+                                color: AppThemeLight
+                                    .instance.theme.colorScheme.background,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12,
+                                      offset: Offset(0, 5),
+                                      blurRadius: 5)
+                                ]),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: context.paddingLow,
+                                  width: 200.w,
+                                  height: 200.h,
+                                  child: ListTile(
+                                    contentPadding: context.paddingLow,
+                                    title: Text(
+                                      "Title Test",
+                                      style: TextStyle(
+                                          fontSize: 22.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                      "Description blabvalblablablalbalblablalbalblablablalbblabalblablalbalbal",
+                                      style: TextStyle(fontSize: 18.sp),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      height: 20.h,
+                                    ),
+                                    Container(
+                                      padding: context.paddingLow,
+                                      height: 50.w,
+                                      width: 100.w,
+                                      child: Text(
+                                        "32 Days ago",
+                                        style: TextStyle(
+                                            fontSize: 15.sp,
+                                            fontStyle: FontStyle.italic),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.h,
+                                    ),
+                                    CircleAvatar(
+                                        backgroundColor: Colors.greenAccent,
+                                        child: Icon(Icons.done,
+                                            size: 30.w,
+                                            color: AppThemeLight.instance.theme
+                                                .colorScheme.background))
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }),
+                )
+              ],
             ),
-            centerTitle: true,
+          ),
+        );
+      },
+    );
+  }
+
+  Padding backButtonAndTitle(
+      BuildContext context, TaskListViewModel viewmodel) {
+    return Padding(
+      padding: context.paddingLow,
+      child: Row(
+        children: [
+          FloatingActionButton(
+            onPressed: viewmodel.returnHomePage,
             elevation: 0,
             backgroundColor:
                 AppThemeLight.instance.theme.colorScheme.background,
-            title: Text(
-              LocaleKeys.task_taskListTitle.tr(),
-              style: TextStyle(
-                  color: AppThemeLight.instance.theme.colorScheme.onBackground,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.sp,
-                  shadows: [
-                    Shadow(
-                        color: Colors.black12,
-                        offset: Offset(0, 2),
-                        blurRadius: 2)
-                  ]),
+            child: Icon(
+              Icons.arrow_back_ios_new_outlined,
+              color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
           ),
-          body: ListView.builder(
-              itemCount: viewmodel.dataLength,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: context.paddingLow,
-                  child: Container(
-                    width: context.width,
-                    height: 150.h,
-                    decoration: BoxDecoration(
-                        color: AppThemeLight.instance.theme.colorScheme.primary,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0, 2),
-                              blurRadius: 2,
-                              blurStyle: BlurStyle.normal)
-                        ]),
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                          child: Text(
-                            (index + 1).toString() + ".",
-                            style: TextStyle(
-                                color: AppThemeLight
-                                    .instance.theme.colorScheme.surface,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100.h,
-                          width: 340.w,
-                          child: ListTile(
-                            title: Text(
-                              "TEST",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 24.sp),
-                            ),
-                            subtitle: Text(
-                              "testestestsetsetestest",
-                              style: TextStyle(
-                                  overflow: TextOverflow.ellipsis,
-                                  fontSize: 15.sp,
-                                  color: AppThemeLight
-                                      .instance.theme.colorScheme.surface,
-                                  fontStyle: FontStyle.italic),
-                            ),
-                            trailing: Icon(
-                              Icons.task_alt_rounded,
-                              size: 40.w,
-                              color: AppThemeLight
-                                  .instance.theme.colorScheme.surface,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              }),
-        );
-      },
+          SizedBox(
+            width: 20.w,
+          ),
+          Text(
+            LocaleKeys.task_taskListTitle.tr(),
+            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }

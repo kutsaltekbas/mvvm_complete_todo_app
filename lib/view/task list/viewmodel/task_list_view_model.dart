@@ -8,6 +8,9 @@ class TaskListViewModel = _TaskListViewModelBase with _$TaskListViewModel;
 abstract class _TaskListViewModelBase with Store, BaseViewModel {
 
 @observable
+int listviewlength = 10;
+
+@observable
 int dataLength = 50;
 void returnHomePage(){
   navigator.navigatorKey.currentState!.pop();
