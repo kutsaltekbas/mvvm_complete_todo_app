@@ -25,6 +25,23 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
     });
   }
 
+  late final _$addTaskTitleControllerAtom = Atom(
+      name: '_HomePageViewModelBase.addTaskTitleController', context: context);
+
+  @override
+  TextEditingController get addTaskTitleController {
+    _$addTaskTitleControllerAtom.reportRead();
+    return super.addTaskTitleController;
+  }
+
+  @override
+  set addTaskTitleController(TextEditingController value) {
+    _$addTaskTitleControllerAtom
+        .reportWrite(value, super.addTaskTitleController, () {
+      super.addTaskTitleController = value;
+    });
+  }
+
   late final _$_HomePageViewModelBaseActionController =
       ActionController(name: '_HomePageViewModelBase', context: context);
 
@@ -119,7 +136,8 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
   @override
   String toString() {
     return '''
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+addTaskTitleController: ${addTaskTitleController}
     ''';
   }
 }

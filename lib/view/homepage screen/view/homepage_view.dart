@@ -29,42 +29,44 @@ class HomePageView extends StatelessWidget {
           ),
           body: Padding(
             padding: EdgeInsets.all(20.w),
-            child: Column(
-              children: [
-                showTaskCard(viewmodel, context),
-                SizedBox(
-                  height: 30.h,
-                ),
-                addTaskButton(context, viewmodel),
-                SizedBox(
-                  height: 30.h,
-                ),
-                headline2Text(),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  children: [
-                    dailyRoutineCard(viewmodel, context),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    schoolCard(viewmodel, context),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  children: [
-                    workCard(viewmodel, context),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    billCard(viewmodel, context),
-                  ],
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  showTaskCard(viewmodel, context),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  addTaskButton(context, viewmodel),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  headline2Text(),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    children: [
+                      dailyRoutineCard(viewmodel, context),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      schoolCard(viewmodel, context),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    children: [
+                      workCard(viewmodel, context),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      billCard(viewmodel, context),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );
@@ -143,21 +145,25 @@ class HomePageView extends StatelessWidget {
                   fit: BoxFit.cover,
                 )),
             Container(
-                width: 220,
-                height: 65,
+                width: 200.w,
+                height: 60.h,
                 padding: context.paddingLow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      LocaleKeys.home_card_3_2_title.tr(),
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.sp),
+                    Expanded(
+                      child: Text(
+                        LocaleKeys.home_card_3_2_title.tr(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.sp),
+                      ),
                     ),
-                    Text(
-                      LocaleKeys.home_card_3_2_subtitle.tr(),
-                      style: TextStyle(
-                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                    Expanded(
+                      child: Text(
+                        LocaleKeys.home_card_3_2_subtitle.tr(),
+                        style: TextStyle(
+                            fontStyle: FontStyle.italic, fontSize: 12.sp),
+                      ),
                     ),
                   ],
                 ))
@@ -191,21 +197,25 @@ class HomePageView extends StatelessWidget {
                 padding: context.paddingLow,
                 child: Image.asset("asset/image/school.png")),
             Container(
-                width: 200,
-                height: 65,
+                width: 220.w,
+                height: 60.h,
                 padding: context.paddingLow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      LocaleKeys.home_card_3_1_title.tr(),
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.sp),
+                    Expanded(
+                      child: Text(
+                        LocaleKeys.home_card_3_1_title.tr(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.sp),
+                      ),
                     ),
-                    Text(
-                      LocaleKeys.home_card_3_1_subtitle.tr(),
-                      style: TextStyle(
-                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                    Expanded(
+                      child: Text(
+                        LocaleKeys.home_card_3_1_subtitle.tr(),
+                        style: TextStyle(
+                            fontStyle: FontStyle.italic, fontSize: 11.sp),
+                      ),
                     ),
                   ],
                 ))
@@ -238,8 +248,8 @@ class HomePageView extends StatelessWidget {
                 padding: context.paddingLow,
                 child: Image.asset("asset/image/routine.png")),
             Container(
-                width: 200,
-                height: 60,
+                width: 200.w,
+                height: 60.h,
                 padding: context.paddingLow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
