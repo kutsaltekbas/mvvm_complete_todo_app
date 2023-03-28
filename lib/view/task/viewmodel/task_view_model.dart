@@ -5,10 +5,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
-import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
-import 'package:mvvm_complete_todo_app/core/init/lang/locale_keys.g.dart';
-import 'package:mvvm_complete_todo_app/core/init/theme/app_theme_light.dart';
+import '../../../core/constants/navigation/navigation_constants.dart';
+import '../../../core/extension/context_extension.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
+import '../../../core/init/theme/app_theme_light.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 part 'task_view_model.g.dart';

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 
 import '../../../core/base/model/base_view_model.dart';
+import '../../../core/constants/navigation/navigation_constants.dart';
+
 part 'login_view_model.g.dart';
 
 class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;

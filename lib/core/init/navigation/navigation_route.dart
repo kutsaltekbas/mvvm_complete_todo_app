@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
-import 'package:mvvm_complete_todo_app/view/homepage/view/homepage_view.dart';
+import '../../constants/navigation/navigation_constants.dart';
+import '../../../view/homepage/view/homepage_view.dart';
 
 import '../../../view/login/view/login_view.dart';
 import '../../../view/on board/view/onboard_view.dart';

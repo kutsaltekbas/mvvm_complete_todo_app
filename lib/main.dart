@@ -2,16 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:provider/provider.dart';
-
 import 'core/constants/app/app_constants.dart';
 import 'core/init/lang/language_manager.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
-import 'core/init/notifier/application_provider.dart';
-import 'view/homepage/view/homepage_view.dart';
-import 'view/on board/view/onboard_view.dart';
-import 'view/setting/view/settings_view.dart';
 import 'view/splash/view/splash_screen_view.dart';
 
 Future<void> main() async {

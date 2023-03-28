@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:mvvm_complete_todo_app/core/init/theme/app_theme.dart';
 
 class AppThemeLight extends AppTheme {

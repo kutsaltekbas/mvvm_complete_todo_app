@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../core/base/model/base_view_model.dart';
+
 part 'task_list_view_model.g.dart';
 
 class TaskListViewModel = _TaskListViewModelBase with _$TaskListViewModel;

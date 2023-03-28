@@ -1,7 +1,7 @@
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mvvm_complete_todo_app/core/init/navigation/navigation_service.dart';
+
+import '../../init/navigation/navigation_service.dart';
 
 class BaseView<T extends Store> extends StatefulWidget {
   // "T extends Store" kod parçası Mobx kullanımı içindir.

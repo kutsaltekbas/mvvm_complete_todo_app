@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
-import 'package:mvvm_complete_todo_app/core/init/lang/locale_keys.g.dart';
-import 'package:mvvm_complete_todo_app/core/init/theme/app_theme_light.dart';
+
 import '../../../core/base/view/base_view.dart';
+import '../../../core/extension/context_extension.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
+import '../../../core/init/theme/app_theme_light.dart';
 import '../viewmodel/homepage_view_model.dart';
 
 class HomePageView extends StatelessWidget {
