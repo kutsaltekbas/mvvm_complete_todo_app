@@ -105,7 +105,10 @@ class HomePageView extends StatelessWidget {
                     Text(
                       LocaleKeys.home_card_3_3_title.tr(),
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.sp),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.sp,
+                          color: AppThemeLight
+                              .instance.theme.colorScheme.onBackground),
                     ),
                     Text(
                       LocaleKeys.home_card_3_3_subtitle.tr(),
@@ -155,7 +158,10 @@ class HomePageView extends StatelessWidget {
                       child: Text(
                         LocaleKeys.home_card_3_2_title.tr(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.sp),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.sp,
+                            color: AppThemeLight
+                                .instance.theme.colorScheme.onBackground),
                       ),
                     ),
                     Expanded(
@@ -207,7 +213,10 @@ class HomePageView extends StatelessWidget {
                       child: Text(
                         LocaleKeys.home_card_3_1_title.tr(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.sp),
+                            color: AppThemeLight
+                                .instance.theme.colorScheme.onBackground,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.sp),
                       ),
                     ),
                     Expanded(
@@ -257,7 +266,10 @@ class HomePageView extends StatelessWidget {
                     Text(
                       LocaleKeys.home_card_3_0_title.tr(),
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.sp),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.sp,
+                          color: AppThemeLight
+                              .instance.theme.colorScheme.onBackground),
                     ),
                     Text(
                       LocaleKeys.home_card_3_0_subtitle.tr(),

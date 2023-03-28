@@ -31,12 +31,16 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
 
   @action
   void settings() {
-    navigator.navigateToPage(path: NavigationConstants.SETTINGS_VIEW, object: Text(""));
+    navigator.navigateToPage(
+        path: NavigationConstants.SETTINGS_VIEW, object: Text(""));
   }
+
   @action
   void showTasks() {
-    navigator.navigateToPage(path: NavigationConstants.TASK_LIST_VIEW, object: Text(""));
+    navigator.navigateToPage(
+        path: NavigationConstants.TASK_LIST_VIEW, object: Text(""));
   }
+
   @action
   void addTask() {
     showDialog(
@@ -56,7 +60,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppThemeLight
-                                .instance.theme.colorScheme.primaryContainer),
+                                .instance.theme.colorScheme.onSurface),
                         onPressed: () {
                           Navigator.pop(viewModelContext);
                         },
@@ -73,7 +77,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppThemeLight
-                                .instance.theme.colorScheme.primaryContainer),
+                                .instance.theme.colorScheme.onSurface),
                         onPressed: () {},
                         child: Text(
                           "Add",
@@ -97,26 +101,27 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                     controller: addTaskTitleController,
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: AppThemeLight
-                            .instance.theme.colorScheme.background),
+                        fillColor:
+                            AppThemeLight.instance.theme.colorScheme.onSurface),
                   ),
                 ),
               ),
               SizedBox(height: 20.h),
             ],
             elevation: 10,
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+            backgroundColor:
+                AppThemeLight.instance.theme.colorScheme.background,
             icon: Icon(
               Icons.task_alt_rounded,
               size: 32.w,
-              color: AppThemeLight.instance.theme.colorScheme.primaryContainer,
+              color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
             title: Text(
               LocaleKeys.taskPage_addTastTitle.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppThemeLight.instance.theme.colorScheme.background),
+                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
             ),
           );
         });
