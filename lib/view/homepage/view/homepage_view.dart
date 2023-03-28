@@ -20,10 +20,10 @@ class HomePageView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+          backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
           appBar: AppBar(
             title: title(),
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
             elevation: 0,
             actions: [settingsIcon(viewmodel)],
           ),
@@ -279,7 +279,7 @@ class HomePageView extends StatelessWidget {
         Text(
           LocaleKeys.home_heading2_headline1.tr(),
           style: TextStyle(
-              color: AppThemeLight.instance.theme.colorScheme.surface,
+              color: AppThemeLight.instance.theme.colorScheme.onBackground,
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               shadows: [
@@ -302,7 +302,7 @@ class HomePageView extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 backgroundColor:
-                    AppThemeLight.instance.theme.colorScheme.surface),
+                    AppThemeLight.instance.theme.colorScheme.background),
             onPressed: viewmodel.addTask,
             child: ListTile(
               title: Text(
@@ -320,7 +320,7 @@ class HomePageView extends StatelessWidget {
               trailing: Icon(
                 Icons.add,
                 size: 50.h,
-                color: AppThemeLight.instance.theme.colorScheme.primary,
+                color: AppThemeLight.instance.theme.colorScheme.onSurface,
               ),
             )));
   }
@@ -337,7 +337,7 @@ class HomePageView extends StatelessWidget {
               BoxShadow(
                   color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
             ],
-            color: AppThemeLight.instance.theme.colorScheme.surface,
+            color: AppThemeLight.instance.theme.colorScheme.background,
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(20)),
         child: Row(
@@ -388,7 +388,7 @@ class HomePageView extends StatelessWidget {
         icon: Icon(
           Icons.menu,
           size: 30.w,
-          color: AppThemeLight.instance.theme.colorScheme.background,
+          color: AppThemeLight.instance.theme.colorScheme.onSurface,
         ));
   }
 
@@ -396,7 +396,7 @@ class HomePageView extends StatelessWidget {
     return Text(
       LocaleKeys.splash_todo.tr(),
       style: TextStyle(
-          color: AppThemeLight.instance.theme.colorScheme.background,
+          color: AppThemeLight.instance.theme.colorScheme.onBackground,
           fontSize: 32.sp,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic),

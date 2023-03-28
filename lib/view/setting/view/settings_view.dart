@@ -41,6 +41,8 @@ class SettingsView extends StatelessWidget {
                               onPressed: viewmodel.returnHomePage,
                               icon: Icon(Icons.arrow_back_ios_new_rounded),
                               iconSize: 25.w,
+                              color: AppThemeLight
+                                  .instance.theme.colorScheme.onSurface,
                             ),
                             SizedBox(
                               width: 110.w,
@@ -64,7 +66,7 @@ class SettingsView extends StatelessWidget {
                         child: ListTile(
                           leading: CircleAvatar(
                             backgroundColor: AppThemeLight
-                                .instance.theme.colorScheme.primary,
+                                .instance.theme.colorScheme.onSurface,
                             radius: 30.h,
                             child: Icon(
                               Icons.person,
@@ -103,6 +105,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
@@ -110,7 +118,8 @@ class SettingsView extends StatelessWidget {
                       leading: Icon(
                         Icons.lightbulb,
                         size: 24.w,
-                        color: AppThemeLight.instance.theme.colorScheme.primary,
+                        color:
+                            AppThemeLight.instance.theme.colorScheme.onSurface,
                       ),
                       trailing: IconButton(
                         icon: Icon(
@@ -142,6 +151,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
@@ -149,7 +164,8 @@ class SettingsView extends StatelessWidget {
                       leading: Icon(
                         Icons.language_rounded,
                         size: 24.w,
-                        color: AppThemeLight.instance.theme.colorScheme.primary,
+                        color:
+                            AppThemeLight.instance.theme.colorScheme.onSurface,
                       ),
                       trailing: IconButton(
                         icon: Icon(
@@ -183,6 +199,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
@@ -190,7 +212,8 @@ class SettingsView extends StatelessWidget {
                       leading: Icon(
                         Icons.change_circle,
                         size: 24.w,
-                        color: AppThemeLight.instance.theme.colorScheme.primary,
+                        color:
+                            AppThemeLight.instance.theme.colorScheme.onSurface,
                       ),
                       trailing: IconButton(
                         icon: Icon(
@@ -222,6 +245,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
@@ -229,7 +258,8 @@ class SettingsView extends StatelessWidget {
                       leading: Icon(
                         Icons.exit_to_app,
                         size: 24.w,
-                        color: AppThemeLight.instance.theme.colorScheme.primary,
+                        color:
+                            AppThemeLight.instance.theme.colorScheme.onSurface,
                       ),
                       trailing: IconButton(
                         icon: Icon(
@@ -272,6 +302,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
@@ -303,6 +339,12 @@ class SettingsView extends StatelessWidget {
                     width: context.width,
                     height: 70.h,
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(0, 3),
+                              blurRadius: 5)
+                        ],
                         color:
                             AppThemeLight.instance.theme.colorScheme.background,
                         borderRadius: BorderRadius.circular(10)),
