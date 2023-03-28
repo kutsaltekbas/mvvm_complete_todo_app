@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
@@ -29,7 +30,9 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
   }
 
   @action
-  void settings() {}
+  void settings() {
+    navigator.navigateToPage(path: NavigationConstants.SETTINGS_VIEW, object: Text(""));
+  }
   @action
   void showTasks() {}
   @action

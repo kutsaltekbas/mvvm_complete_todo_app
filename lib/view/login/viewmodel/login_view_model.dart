@@ -31,7 +31,7 @@ void returnOnboard(){
 
 @action
 void login(){
-
+  navigator.navigateToPageClear(path: NavigationConstants.HOME_PAGE_VIEW, object: Text(""));
 }
 
 @action 

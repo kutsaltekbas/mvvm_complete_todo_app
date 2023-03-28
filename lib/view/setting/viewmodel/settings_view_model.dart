@@ -10,6 +10,11 @@ abstract class _SettingsViewModelBase with Store, BaseViewModel {
 @observable
 bool isLoading = false;
 
+@action
+void returnHomePage(){
+  navigator.navigatorKey.currentState!.pop();
+}
+
   @override
   void setContext(BuildContext context) => viewModelContext = context;
   @override

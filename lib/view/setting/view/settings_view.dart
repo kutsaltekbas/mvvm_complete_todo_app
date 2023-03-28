@@ -38,7 +38,7 @@ class SettingsView extends StatelessWidget {
                         child: Row(
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: viewmodel.returnHomePage,
                               icon: Icon(Icons.arrow_back_ios_new_rounded),
                               iconSize: 25.w,
                             ),
