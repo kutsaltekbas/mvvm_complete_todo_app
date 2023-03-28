@@ -78,7 +78,11 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppThemeLight
                                 .instance.theme.colorScheme.onSurface),
-                        onPressed: () {},
+                        onPressed: () {
+                          navigator.navigateToPage(
+                              path: NavigationConstants.TASK_VIEW,
+                              object: Text(""));
+                        },
                         child: Text(
                           "Add",
                           style: TextStyle(
