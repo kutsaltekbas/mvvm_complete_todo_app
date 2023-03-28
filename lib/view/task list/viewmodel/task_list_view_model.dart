@@ -9,7 +9,9 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
 
 @observable
 int dataLength = 50;
-
+void returnHomePage(){
+  navigator.navigatorKey.currentState!.pop();
+}
 
 @observable
 bool isLoading = false;

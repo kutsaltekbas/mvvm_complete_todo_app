@@ -34,7 +34,9 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
     navigator.navigateToPage(path: NavigationConstants.SETTINGS_VIEW, object: Text(""));
   }
   @action
-  void showTasks() {}
+  void showTasks() {
+    navigator.navigateToPage(path: NavigationConstants.TASK_LIST_VIEW, object: Text(""));
+  }
   @action
   void addTask() {
     showDialog(

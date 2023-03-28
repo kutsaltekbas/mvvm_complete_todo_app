@@ -21,6 +21,11 @@ class TaskListView extends StatelessWidget {
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
           appBar: AppBar(
+            leading: IconButton(
+              onPressed: viewmodel.returnHomePage,
+              icon: Icon(Icons.arrow_back_ios_new_rounded),
+              color: AppThemeLight.instance.theme.colorScheme.primary,
+            ),
             centerTitle: true,
             elevation: 0,
             backgroundColor:
