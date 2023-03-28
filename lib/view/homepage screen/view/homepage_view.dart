@@ -74,156 +74,145 @@ class HomePageView extends StatelessWidget {
 
   GestureDetector billCard(HomePageViewModel viewmodel, BuildContext context) {
     return GestureDetector(
-                    onTap: viewmodel.addTaskBills,
-                    child: Container(
-                      width: 200.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(0, 3),
-                                blurRadius: 5)
-                          ]),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              width: 90.w,
-                              height: 80.h,
-                              padding: context.paddingLow,
-                              child: Image.asset("asset/image/bill.png")),
-                          Container(
-                              width: 200,
-                              height: 60,
-                              padding: context.paddingLow,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    LocaleKeys.home_card_3_3_title.tr(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.sp),
-                                  ),
-                                  Text(
-                                    LocaleKeys.home_card_3_3_subtitle.tr(),
-                                    style: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 12.sp),
-                                  ),
-                                ],
-                              ))
-                        ],
-                      ),
+      onTap: viewmodel.addTaskBills,
+      child: Container(
+        width: 200.w,
+        height: 150.h,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
+            ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                width: 90.w,
+                height: 80.h,
+                padding: context.paddingLow,
+                child: Image.asset("asset/image/bill.png")),
+            Container(
+                width: 200,
+                height: 60,
+                padding: context.paddingLow,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      LocaleKeys.home_card_3_3_title.tr(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.sp),
                     ),
-                  );
+                    Text(
+                      LocaleKeys.home_card_3_3_subtitle.tr(),
+                      style: TextStyle(
+                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                    ),
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
   }
 
   GestureDetector workCard(HomePageViewModel viewmodel, BuildContext context) {
     return GestureDetector(
-                    onTap: viewmodel.addTaskWork,
-                    child: Container(
-                      width: 140.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(0, 3),
-                                blurRadius: 5)
-                          ]),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              width: 90.w,
-                              height: 80.h,
-                              padding: context.paddingLow,
-                              child: Image.asset(
-                                "asset/image/work.png",
-                                fit: BoxFit.cover,
-                              )),
-                          Container(
-                              width: 200,
-                              height: 60,
-                              padding: context.paddingLow,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    LocaleKeys.home_card_3_2_title.tr(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.sp),
-                                  ),
-                                  Text(
-                                    LocaleKeys.home_card_3_2_subtitle.tr(),
-                                    style: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 12.sp),
-                                  ),
-                                ],
-                              ))
-                        ],
-                      ),
+      onTap: viewmodel.addTaskWork,
+      child: Container(
+        width: 140.w,
+        height: 150.h,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
+            ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                width: 90.w,
+                height: 80.h,
+                padding: context.paddingLow,
+                child: Image.asset(
+                  "asset/image/work.png",
+                  fit: BoxFit.cover,
+                )),
+            Container(
+                width: 220,
+                height: 65,
+                padding: context.paddingLow,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      LocaleKeys.home_card_3_2_title.tr(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.sp),
                     ),
-                  );
+                    Text(
+                      LocaleKeys.home_card_3_2_subtitle.tr(),
+                      style: TextStyle(
+                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                    ),
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
   }
 
-  GestureDetector schoolCard(HomePageViewModel viewmodel, BuildContext context) {
+  GestureDetector schoolCard(
+      HomePageViewModel viewmodel, BuildContext context) {
     return GestureDetector(
-                    onTap: viewmodel.addTaskSchool,
-                    child: Container(
-                      width: 140.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0, 3),
-                              blurRadius: 5)
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              width: 90.w,
-                              height: 80.h,
-                              padding: context.paddingLow,
-                              child: Image.asset("asset/image/school.png")),
-                          Container(
-                              width: 200,
-                              height: 60,
-                              padding: context.paddingLow,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    LocaleKeys.home_card_3_1_title.tr(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.sp),
-                                  ),
-                                  Text(
-                                    LocaleKeys.home_card_3_1_subtitle.tr(),
-                                    style: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 12.sp),
-                                  ),
-                                ],
-                              ))
-                        ],
-                      ),
+      onTap: viewmodel.addTaskSchool,
+      child: Container(
+        width: 140.w,
+        height: 150.h,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                width: 90.w,
+                height: 80.h,
+                padding: context.paddingLow,
+                child: Image.asset("asset/image/school.png")),
+            Container(
+                width: 200,
+                height: 65,
+                padding: context.paddingLow,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      LocaleKeys.home_card_3_1_title.tr(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.sp),
                     ),
-                  );
+                    Text(
+                      LocaleKeys.home_card_3_1_subtitle.tr(),
+                      style: TextStyle(
+                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                    ),
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
   }
 
   GestureDetector dailyRoutineCard(
