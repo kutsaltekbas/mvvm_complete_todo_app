@@ -5,6 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/locale_keys.g.dart';
 import 'package:mvvm_complete_todo_app/core/init/theme/app_theme_light.dart';
@@ -64,7 +65,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.primaryContainer),
+                              .instance.theme.colorScheme.onSurface),
                       onPressed: () {
                         Navigator.pop(viewModelContext);
                       },
@@ -81,7 +82,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.primaryContainer),
+                              .instance.theme.colorScheme.onSurface),
                       onPressed: addTaskToList,
                       child: Text(
                         "Add",
@@ -101,6 +102,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                 child: Padding(
                   padding: viewModelContext.paddingLow,
                   child: TextField(
+                    maxLength: 160,
                     controller: taskController,
                     decoration: InputDecoration(
                         filled: true,
@@ -112,18 +114,18 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
               SizedBox(height: 20.h),
             ],
             elevation: 10,
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
             icon: Icon(
               Icons.task_alt_rounded,
               size: 32.w,
-              color: AppThemeLight.instance.theme.colorScheme.primaryContainer,
+              color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
             title: Text(
               LocaleKeys.taskPage_addTastTitle.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppThemeLight.instance.theme.colorScheme.background),
+                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
             ),
           );
         });
@@ -142,5 +144,11 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
   @action
   bool checkboxCase(int index) {
     return checkboxValueList[index];
+  }
+
+  @action
+  void returnHomePage() {
+    navigator.navigateToPageClear(
+        path: NavigationConstants.HOME_PAGE_VIEW, object: Text(""));
   }
 }

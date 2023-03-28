@@ -24,16 +24,31 @@ class TaskView extends StatelessWidget {
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
           resizeToAvoidBottomInset: true,
-          backgroundColor: AppThemeLight.instance.theme.colorScheme.background,
+          backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
           appBar: AppBar(
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.primary,
+            leading: IconButton(
+              onPressed: viewmodel.returnHomePage,
+              icon: Icon(
+                Icons.arrow_back_ios_rounded,
+                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              ),
+            ),
+            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
             elevation: 0,
             title: Text(
               LocaleKeys.task_taskTitle.tr(),
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.sp,
+                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
             ),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.fact_check))
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.fact_check,
+                    color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                  ))
               // Container(
               //   padding: context.paddingLow,
               //   width: context.width * 0.7,
@@ -55,8 +70,7 @@ class TaskView extends StatelessWidget {
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton: FloatingActionButton(
             onPressed: viewmodel.addTask,
-            backgroundColor:
-                AppThemeLight.instance.theme.colorScheme.primaryContainer,
+            backgroundColor: AppThemeLight.instance.theme.colorScheme.onSurface,
             child: Icon(Icons.add),
           ),
           body: Observer(builder: (_) {
@@ -66,26 +80,33 @@ class TaskView extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   return Padding(
                       padding: context.paddingLow,
-                      child: CheckboxListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        title: Text(
-                          viewmodel.taskList[index],
-                          style: TextStyle(
-                              color: AppThemeLight
-                                  .instance.theme.colorScheme.surface),
+                      child: Container(
+                        width: context.width,
+                        height: 100.h,
+                        child: CheckboxListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          title: Text(
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            viewmodel.taskList[index],
+                            style: TextStyle(
+                                color: AppThemeLight
+                                    .instance.theme.colorScheme.onBackground,
+                                fontSize: 16.sp),
+                          ),
+                          tileColor: AppThemeLight
+                              .instance.theme.colorScheme.background,
+                          checkColor: AppThemeLight
+                              .instance.theme.colorScheme.background,
+                          activeColor: AppThemeLight
+                              .instance.theme.colorScheme.onBackground,
+                          value: viewmodel.checkboxValueList[index],
+                          onChanged: (bool? value) {
+                            print("onchanged $value");
+                            viewmodel.onCheckboxChanged(index, value!);
+                          },
                         ),
-                        tileColor:
-                            AppThemeLight.instance.theme.colorScheme.primary,
-                        checkColor:
-                            AppThemeLight.instance.theme.colorScheme.primary,
-                        activeColor:
-                            AppThemeLight.instance.theme.colorScheme.surface,
-                        value: viewmodel.checkboxValueList[index],
-                        onChanged: (bool? value) {
-                          print("onchanged $value");
-                          viewmodel.onCheckboxChanged(index, value!);
-                        },
                       ));
                 }));
           }),
