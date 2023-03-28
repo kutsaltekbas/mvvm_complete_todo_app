@@ -6,10 +6,13 @@ import 'package:provider/provider.dart';
 
 import 'core/constants/app/app_constants.dart';
 import 'core/init/lang/language_manager.dart';
+import 'core/init/navigation/navigation_route.dart';
+import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/application_provider.dart';
 import 'view/homepage/view/homepage_view.dart';
+import 'view/on board/view/onboard_view.dart';
 import 'view/setting/view/settings_view.dart';
-
+import 'view/splash/view/splash_screen_view.dart';
 
 Future<void> main() async {
   await _init();
@@ -40,7 +43,9 @@ class MyApp extends StatelessWidget {
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            home: SettingsView(),
+            home: SplashScreenView(),
+            navigatorKey: NavigationService.instance.navigatorKey,
+            onGenerateRoute: NavigationRoute.instance.generateRoute,
           );
         });
   }
