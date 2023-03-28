@@ -61,6 +61,10 @@ abstract class  LocaleKeys {
   static const home_setting_core_themeDesc = 'home.setting.core.themeDesc';
   static const home_setting_core_langTitle = 'home.setting.core.langTitle';
   static const home_setting_core_langDesc = 'home.setting.core.langDesc';
+  static const home_setting_core_changePasswordTitle = 'home.setting.core.changePasswordTitle';
+  static const home_setting_core_changePasswordDesc = 'home.setting.core.changePasswordDesc';
+  static const home_setting_core_signOutTitle = 'home.setting.core.signOutTitle';
+  static const home_setting_core_signOutDesc = 'home.setting.core.signOutDesc';
   static const home_setting_core = 'home.setting.core';
   static const home_setting_exit = 'home.setting.exit';
   static const home_setting = 'home.setting';

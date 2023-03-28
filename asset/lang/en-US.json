@@ -76,7 +76,11 @@
                 "themeTitle": "Theme Change",
                 "themeDesc": "You can change applicaton theme.",
                 "langTitle": "Language Change",
-                "langDesc": "You can change applicaton language."
+                "langDesc": "You can change applicaton language.",
+                "changePasswordTitle": "Reset Password",
+                "changePasswordDesc": "You can reset your password.",
+                "signOutTitle": "Sign Out",
+                "signOutDesc": "You can sign out your account."
             },
             "exit": "Exit"
         }
