@@ -18,8 +18,9 @@ NavigationService navigator = NavigationService.instance;
   void setContext(BuildContext context) => viewModelContext = context;
   @override
   Future<void> init() async {
-    await Future.delayed(Duration(seconds: 3));
-    navigator.navigateToPage(path: NavigationConstants.ON_BOARD_VIEW, object: Text(""));
+     await Future.delayed(Duration(seconds: 3));
+     navigator.navigateToPageClear(path: NavigationConstants.ON_BOARD_VIEW, object: Text(""));
+
   }
 
   @action

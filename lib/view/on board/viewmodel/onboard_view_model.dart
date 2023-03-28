@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
+import 'package:mvvm_complete_todo_app/core/init/navigation/navigation_service.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 part 'onboard_view_model.g.dart';
@@ -9,6 +11,7 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
 
 @observable
 bool isLoading = false;
+NavigationService navigator = NavigationService.instance;
 
 @action
 void facebookLogin(){
@@ -20,7 +23,7 @@ void googleLogin(){
 }
 @action
 void emailLogin(){
-  
+  navigator.navigateToPage(path: NavigationConstants.LOGIN_VIEW, object: Text("hehehe"));
 }
 
   @override

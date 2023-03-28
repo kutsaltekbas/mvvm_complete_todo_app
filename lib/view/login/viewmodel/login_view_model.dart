@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 part 'login_view_model.g.dart';
@@ -25,7 +26,7 @@ void forgotPasswordFunc(){
 
 @action
 void returnOnboard(){
-
+ navigator.navigatorKey.currentState!.pop();
 }
 
 @action

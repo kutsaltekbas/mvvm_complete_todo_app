@@ -6,9 +6,9 @@
     "onBoard": {
         "title": "Take notes everywhere",
         "subtitle": "easy way to take notes for your work.",
-        "facebookLogin": "Login with facebook",
-        "googleLogin": "Login with google",
-        "emailLogin": "Login with email"
+        "facebookLogin": "Login with Facebook",
+        "googleLogin": "Login with Google",
+        "emailLogin": "Login with Email"
     },
     "login": {
         "tab1": "Login",
