@@ -135,10 +135,10 @@ class SettingsView extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        LocaleKeys.home_setting_core_themeDesc.tr(),
-                        style: TextStyle(fontSize: 13.sp),
-                      ),
+                      // subtitle: Text(
+                      //   LocaleKeys.home_setting_core_themeDesc.tr(),
+                      //   style: TextStyle(fontSize: 13.sp),
+                      // ),
                     ),
                   ),
                 ),
@@ -181,12 +181,12 @@ class SettingsView extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        LocaleKeys.home_setting_core_langDesc.tr(),
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                        ),
-                      ),
+                      // subtitle: Text(
+                      //   LocaleKeys.home_setting_core_langDesc.tr(),
+                      //   style: TextStyle(
+                      //     fontSize: 12.sp,
+                      //   ),
+                      // ),
                     ),
                   ),
                 ),
@@ -229,10 +229,10 @@ class SettingsView extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        LocaleKeys.home_setting_core_changePasswordDesc.tr(),
-                        style: TextStyle(fontSize: 12.sp),
-                      ),
+                      // subtitle: Text(
+                      //   LocaleKeys.home_setting_core_changePasswordDesc.tr(),
+                      //   style: TextStyle(fontSize: 12.sp),
+                      // ),
                     ),
                   ),
                 ),
@@ -275,10 +275,10 @@ class SettingsView extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        LocaleKeys.home_setting_core_signOutDesc.tr(),
-                        style: TextStyle(fontSize: 12.sp),
-                      ),
+                      // subtitle: Text(
+                      //   LocaleKeys.home_setting_core_signOutDesc.tr(),
+                      //   style: TextStyle(fontSize: 12.sp),
+                      // ),
                     ),
                   ),
                 ),

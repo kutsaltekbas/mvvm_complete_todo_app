@@ -30,16 +30,18 @@ class HomePageView extends StatelessWidget {
           ),
           body: Padding(
             padding: EdgeInsets.all(20.w),
-            child: SingleChildScrollView(
+            child: Container(
+              width: context.width,
+              height: context.height,
               child: Column(
                 children: [
                   showTaskCard(viewmodel, context),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   addTaskButton(context, viewmodel),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   headline2Text(),
                   SizedBox(
@@ -97,8 +99,8 @@ class HomePageView extends StatelessWidget {
                 padding: context.paddingLow,
                 child: Image.asset("asset/image/bill.png")),
             Container(
-                width: 200,
-                height: 60,
+                width: 200.w,
+                height: 60.h,
                 padding: context.paddingLow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

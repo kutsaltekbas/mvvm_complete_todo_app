@@ -83,7 +83,7 @@ class LoginView extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage("asset/image/todo.png"),
                 fit: BoxFit.none,
-                scale: 4)),
+                scale: 5.w)),
       ),
     );
   }
