@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>713753760311-5jth8aqh7cvnvia2mfjb92elktib09gk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.713753760311-5jth8aqh7cvnvia2mfjb92elktib09gk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDn0AnI7w1hb2GNRLazMqCZJaS3g4eUC10</string>
+	<key>GCM_SENDER_ID</key>
+	<string>713753760311</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mvvmCompleteTodoApp</string>
+	<key>PROJECT_ID</key>
+	<string>network-service-test</string>
+	<key>STORAGE_BUCKET</key>
+	<string>network-service-test.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:713753760311:ios:638a77e5e92da8735925b2</string>
+	<key>DATABASE_URL</key>
+	<string>https://network-service-test-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

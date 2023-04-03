@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:ffi';
 
 import 'package:dio/dio.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:http/http.dart' as http;
@@ -24,11 +25,16 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
 
   @action
   void openTask() {
-    navigator.navigateToPage(path: NavigationConstants.TASK_OPEN_VIEW, object: dataList[selectedData]);
+    navigator
+        .navigateToPage(
+            path: NavigationConstants.TASK_OPEN_VIEW,
+            object: dataList[selectedData])
+        .then((value) => getData());
   }
 
   @action
   Future<void> getData() async {
+    dataList = [];
     var response = await dio.get(
         "https://network-service-test-default-rtdb.europe-west1.firebasedatabase.app/user/taskList.json");
     (response.data as Map<String, dynamic>).forEach((key, value) {
@@ -40,10 +46,10 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
   }
 
   @action
-  void changeSelectedData(int index){
+  void changeSelectedData(int index) {
     selectedData = index;
   }
-  
+
   @observable
   int listviewlength = 0;
 

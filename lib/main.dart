@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mvvm_complete_todo_app/firebase_options.dart';
 
 import 'core/constants/app/app_constants.dart';
 import 'core/init/lang/language_manager.dart';
@@ -20,6 +22,9 @@ Future<void> main() async {
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   await EasyLocalization.ensureInitialized();
 }
 

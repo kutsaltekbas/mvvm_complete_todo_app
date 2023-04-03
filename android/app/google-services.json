@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "713753760311",
+    "firebase_url": "https://network-service-test-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "network-service-test",
+    "storage_bucket": "network-service-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713753760311:android:1497722ffee913485925b2",
+        "android_client_info": {
+          "package_name": "com.example.mvvm_complete_todo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713753760311-bosmu0vkjv9pod4l7cgm98pos12p7e0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgBkiJgmtoq1u_HyESiZr5lDjPsByLBN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713753760311-bosmu0vkjv9pod4l7cgm98pos12p7e0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

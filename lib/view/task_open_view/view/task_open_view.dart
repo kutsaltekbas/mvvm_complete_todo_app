@@ -22,76 +22,96 @@ class TaskOpenView extends StatelessWidget {
         viewmodel.init();
       },
       onPageBuilder: (context, viewmodel) {
-        return Scaffold(
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
-            appBar: AppBar(
+        return WillPopScope(
+          onWillPop: () => Future.value(true),
+          child: Scaffold(
               backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
-              title: Text(
-                task.title.toString(),
-                style: TextStyle(
-                    color:
-                        AppThemeLight.instance.theme.colorScheme.onBackground,
-                    fontSize: 24.sp),
-              ),
-              elevation: 0,
-              leading: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios_new_rounded,
-                  size: 24.w,
-                  color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              appBar: AppBar(
+                backgroundColor:
+                    AppThemeLight.instance.theme.colorScheme.surface,
+                title: Text(
+                  task.title.toString(),
+                  style: TextStyle(
+                      color:
+                          AppThemeLight.instance.theme.colorScheme.onBackground,
+                      fontSize: 24.sp),
                 ),
-                onPressed: viewmodel.goBack,
+                elevation: 0,
+                leading: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    size: 24.w,
+                    color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                  ),
+                  onPressed: viewmodel.goBack,
+                ),
               ),
-            ),
-            body: Container(
-              width: context.width,
-              height: context.height,
-              child: ListView.builder(
-                  itemCount: task.subtask!.tasks!.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 400.h,
-                      padding: context.paddingNormal,
-                      height: 200.h,
-                      child: Card(
-                        color:
-                            AppThemeLight.instance.theme.colorScheme.background,
-                        elevation: 3,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Container(
-                                padding: context.paddingLow,
-                                width: 360.h,
-                                height: 190.h,
-                                child: Text(
-                                    task.subtask!.tasks![index].toString())),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Observer(builder: (_) {
-                              return CircleAvatar(
-                                backgroundColor: task.subtask!.taskCases![index]
-                                    ? Colors.greenAccent
-                                    : Colors.redAccent,
-                                child: IconButton(
-                                  padding: EdgeInsets.zero,
-                                  onPressed: viewmodel.changeCircleAvatarColor,
-                                  icon: Icon(Icons.check),
-                                  iconSize: 40.h,
-                                  color: AppThemeLight
-                                      .instance.theme.colorScheme.background,
-                                ),
-                              );
-                            })
-                          ],
+              body: Container(
+                width: context.width,
+                height: context.height,
+                child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: task.subtask!.tasks!.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 400.h,
+                        padding: context.paddingNormal,
+                        height: 200.h,
+                        child: Card(
+                          color: AppThemeLight
+                              .instance.theme.colorScheme.background,
+                          elevation: 3,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              Container(
+                                  padding: context.paddingLow,
+                                  width: 360.h,
+                                  height: 190.h,
+                                  child: Text(
+                                      task.subtask!.tasks![index].toString())),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              Observer(builder: (_) {
+                                return CircleAvatar(
+                                    backgroundColor:
+                                        viewmodel.taskCaseList[index]
+                                            ? Colors.greenAccent
+                                            : Colors.redAccent,
+                                    child: viewmodel.taskCaseList[index]
+                                        ? IconButton(
+                                            padding: EdgeInsets.zero,
+                                            onPressed: () {
+                                              viewmodel.changeCircleAvatarColor(
+                                                  index);
+                                            },
+                                            icon: Icon(Icons.check),
+                                            iconSize: 40.h,
+                                            color: AppThemeLight.instance.theme
+                                                .colorScheme.background,
+                                          )
+                                        : IconButton(
+                                            padding: EdgeInsets.zero,
+                                            onPressed: () {
+                                              viewmodel.changeCircleAvatarColor(
+                                                  index);
+                                            },
+                                            icon: Icon(Icons.close),
+                                            iconSize: 40.h,
+                                            color: AppThemeLight.instance.theme
+                                                .colorScheme.background,
+                                          ));
+                              })
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
-            ));
+                      );
+                    }),
+              )),
+        );
       },
     );
   }
