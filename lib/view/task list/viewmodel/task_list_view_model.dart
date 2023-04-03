@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:http/http.dart' as http;
 import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
+import 'package:mvvm_complete_todo_app/view/task_open_view/service/taskList.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 import '../../../model/task_data_model.dart.dart';
@@ -25,6 +26,7 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
 
   @action
   void openTask() {
+    TaskList.selectedTask = selectedData;
     navigator
         .navigateToPage(
             path: NavigationConstants.TASK_OPEN_VIEW,

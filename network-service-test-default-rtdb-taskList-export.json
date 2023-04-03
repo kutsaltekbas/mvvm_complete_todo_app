@@ -1,0 +1,36 @@
+{
+  "task1": {
+    "category": "sport",
+    "description": "bu hayatta tek mal varlığım acılarım",
+    "isDone": true,
+    "subtask": {
+      "taskCases": [
+        true,
+        false
+      ],
+      "tasks": [
+        "hehehe",
+        "sadasdsa"
+      ]
+    },
+    "taskId": 0,
+    "title": "second"
+  },
+  "task0": {
+    "category": "routine",
+    "description": "holyholhyolhyohly",
+    "isDone": false,
+    "subtask": {
+      "taskCases": [
+        false,
+        false
+      ],
+      "tasks": [
+        "asdaskdjlkjasd",
+        "gsgsagsaksa"
+      ]
+    },
+    "taskId": 1,
+    "title": "yeteyeoyeryeoyeyoeo"
+  }
+}

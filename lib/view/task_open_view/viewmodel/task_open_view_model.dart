@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:mvvm_complete_todo_app/model/task_data_model.dart.dart';
+import 'package:mvvm_complete_todo_app/view/task_open_view/service/taskList.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import 'package:mobx/mobx.dart';
 part 'task_open_view_model.g.dart';
@@ -13,6 +14,9 @@ class TaskOpenViewModel = _TaskOpenViewModelBase with _$TaskOpenViewModel;
 abstract class _TaskOpenViewModelBase with Store, BaseViewModel {
   FirebaseDatabase database = FirebaseDatabase.instance;
   DatabaseReference ref = FirebaseDatabase.instance.ref("user/taskList");
+
+  @observable
+  String selectedTask = "task${TaskList.selectedTask}";
 
   @observable
   Task task;
@@ -32,7 +36,7 @@ abstract class _TaskOpenViewModelBase with Store, BaseViewModel {
 
   @action
   Future<void> updateData() async {
-    await ref.update({"task/subtask/taskCases": taskCaseList});
+    await ref.update({"${selectedTask}/subtask/taskCases": taskCaseList});
   }
 
   @observable

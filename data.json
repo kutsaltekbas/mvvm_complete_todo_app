@@ -1,13 +1,19 @@
 {
-    "task": {
-        "title": "",
-        "taskId": 0,
-        "isDone": false,
-        "category": "",
-        "description": "",
-        "subtask": {
-            "tasks":[""],
-            "taskCases":[false]
-        }
+    "task1": {
+      "category": "sport",
+      "description": "bu hayatta tek mal varlığım acılarım",
+      "isDone": true,
+      "subtask": {
+        "taskCases": [
+          true,
+          false
+        ],
+        "tasks": [
+          "hehehe",
+          "sadasdsa"
+        ]
+      },
+      "taskId": 0,
+      "title": "second"
     }
 }
