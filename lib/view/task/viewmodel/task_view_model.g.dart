@@ -177,6 +177,17 @@ mixin _$TaskViewModel on _TaskViewModelBase, Store {
   }
 
   @override
+  void returnHomePage() {
+    final _$actionInfo = _$_TaskViewModelBaseActionController.startAction(
+        name: '_TaskViewModelBase.returnHomePage');
+    try {
+      return super.returnHomePage();
+    } finally {
+      _$_TaskViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 titleController: ${titleController},

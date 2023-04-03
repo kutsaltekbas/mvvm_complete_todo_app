@@ -1,29 +1,55 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../core/base/model/base_view_model.dart';
+import '../../../model/task_data_model.dart.dart';
 
 part 'task_list_view_model.g.dart';
 
 class TaskListViewModel = _TaskListViewModelBase with _$TaskListViewModel;
+
 abstract class _TaskListViewModelBase with Store, BaseViewModel {
+  @observable
+  List<Task> dataList = [];
+  final dio = Dio();
 
-@observable
-int listviewlength = 10;
+  @action
+  Future<void> getData() async {
+    var response = await dio.get(
+        "https://network-service-test-default-rtdb.europe-west1.firebasedatabase.app/user/taskList.json");
+    (response.data as Map<String, dynamic>).forEach((key, value) {
+      dataList.add(Task.fromJson(response.data[key]));
+    });
+    listviewlength = dataList.length;
+    inspect(response.data);
+    inspect(dataList);
+  }
 
-@observable
-int dataLength = 50;
-void returnHomePage(){
-  navigator.navigatorKey.currentState!.pop();
-}
+  @observable
+  int listviewlength = 0;
 
-@observable
-bool isLoading = false;
+  @observable
+  int dataLength = 50;
+  void returnHomePage() {
+    navigator.navigatorKey.currentState!.pop();
+  }
+
+  @observable
+  bool isLoading = false;
 
   @override
   void setContext(BuildContext context) => viewModelContext = context;
   @override
-  void init() {}
+  Future<void> init() async {
+    changeIsLoading();
+    await getData();
+    changeIsLoading();
+  }
 
   @action
   void changeIsLoading() {

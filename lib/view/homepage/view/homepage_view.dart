@@ -152,7 +152,7 @@ class HomePageView extends StatelessWidget {
                 )),
             Container(
                 width: 200.w,
-                height: 60.h,
+                height: 70.h,
                 padding: context.paddingLow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

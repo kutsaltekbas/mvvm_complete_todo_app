@@ -25,6 +25,22 @@ mixin _$SplashScreenViewModel on _SplashScreenViewModelBase, Store {
     });
   }
 
+  late final _$navigatorAtom =
+      Atom(name: '_SplashScreenViewModelBase.navigator', context: context);
+
+  @override
+  NavigationService get navigator {
+    _$navigatorAtom.reportRead();
+    return super.navigator;
+  }
+
+  @override
+  set navigator(NavigationService value) {
+    _$navigatorAtom.reportWrite(value, super.navigator, () {
+      super.navigator = value;
+    });
+  }
+
   late final _$_SplashScreenViewModelBaseActionController =
       ActionController(name: '_SplashScreenViewModelBase', context: context);
 
@@ -42,7 +58,8 @@ mixin _$SplashScreenViewModel on _SplashScreenViewModelBase, Store {
   @override
   String toString() {
     return '''
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+navigator: ${navigator}
     ''';
   }
 }

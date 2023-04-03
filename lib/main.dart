@@ -7,6 +7,7 @@ import 'core/init/lang/language_manager.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 import 'view/splash/view/splash_screen_view.dart';
+import 'view/test/view/test_view.dart';
 
 Future<void> main() async {
   await _init();

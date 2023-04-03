@@ -9,6 +9,22 @@ part of 'task_list_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
+  late final _$listviewlengthAtom =
+      Atom(name: '_TaskListViewModelBase.listviewlength', context: context);
+
+  @override
+  int get listviewlength {
+    _$listviewlengthAtom.reportRead();
+    return super.listviewlength;
+  }
+
+  @override
+  set listviewlength(int value) {
+    _$listviewlengthAtom.reportWrite(value, super.listviewlength, () {
+      super.listviewlength = value;
+    });
+  }
+
   late final _$dataLengthAtom =
       Atom(name: '_TaskListViewModelBase.dataLength', context: context);
 
@@ -58,6 +74,7 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
   @override
   String toString() {
     return '''
+listviewlength: ${listviewlength},
 dataLength: ${dataLength},
 isLoading: ${isLoading}
     ''';

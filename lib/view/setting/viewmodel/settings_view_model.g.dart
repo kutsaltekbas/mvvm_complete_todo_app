@@ -29,6 +29,17 @@ mixin _$SettingsViewModel on _SettingsViewModelBase, Store {
       ActionController(name: '_SettingsViewModelBase', context: context);
 
   @override
+  void returnHomePage() {
+    final _$actionInfo = _$_SettingsViewModelBaseActionController.startAction(
+        name: '_SettingsViewModelBase.returnHomePage');
+    try {
+      return super.returnHomePage();
+    } finally {
+      _$_SettingsViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeIsLoading() {
     final _$actionInfo = _$_SettingsViewModelBaseActionController.startAction(
         name: '_SettingsViewModelBase.changeIsLoading');
