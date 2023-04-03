@@ -2,6 +2,8 @@
     "task":{
         "title":"",
         "body":"",
-        "taskId":0
+        "taskId":0,
+        "isDone": false,
+        "category":""
     }
 }
