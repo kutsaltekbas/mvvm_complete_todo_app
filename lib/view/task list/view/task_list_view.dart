@@ -32,6 +32,7 @@ class TaskListView extends StatelessWidget {
                           backButtonAndTitle(context, viewmodel),
                           Expanded(
                             child: ListView.builder(
+                                physics: BouncingScrollPhysics(),
                                 itemCount: viewmodel.listviewlength,
                                 itemBuilder: (context, index) {
                                   return Padding(

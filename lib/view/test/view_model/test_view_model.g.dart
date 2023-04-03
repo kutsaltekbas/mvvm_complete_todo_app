@@ -80,6 +80,17 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
   }
 
   @override
+  void postData() {
+    final _$actionInfo = _$_TestViewModelBaseActionController.startAction(
+        name: '_TestViewModelBase.postData');
+    try {
+      return super.postData();
+    } finally {
+      _$_TestViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 data: ${data},

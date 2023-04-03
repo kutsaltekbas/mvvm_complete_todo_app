@@ -25,6 +25,22 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
     });
   }
 
+  late final _$selectedDataAtom =
+      Atom(name: '_TaskListViewModelBase.selectedData', context: context);
+
+  @override
+  int get selectedData {
+    _$selectedDataAtom.reportRead();
+    return super.selectedData;
+  }
+
+  @override
+  set selectedData(int value) {
+    _$selectedDataAtom.reportWrite(value, super.selectedData, () {
+      super.selectedData = value;
+    });
+  }
+
   late final _$listviewlengthAtom =
       Atom(name: '_TaskListViewModelBase.listviewlength', context: context);
 
@@ -96,6 +112,17 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
   }
 
   @override
+  void changeSelectedData(int index) {
+    final _$actionInfo = _$_TaskListViewModelBaseActionController.startAction(
+        name: '_TaskListViewModelBase.changeSelectedData');
+    try {
+      return super.changeSelectedData(index);
+    } finally {
+      _$_TaskListViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeIsLoading() {
     final _$actionInfo = _$_TaskListViewModelBaseActionController.startAction(
         name: '_TaskListViewModelBase.changeIsLoading');
@@ -110,6 +137,7 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
   String toString() {
     return '''
 dataList: ${dataList},
+selectedData: ${selectedData},
 listviewlength: ${listviewlength},
 dataLength: ${dataLength},
 isLoading: ${isLoading}

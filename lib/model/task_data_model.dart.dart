@@ -22,7 +22,7 @@ class Task {
   bool? isDone;
   String? category;
   String? description;
-  List<String>? subtask;
+  Subtask? subtask;
 
   Task(
       {this.title,
@@ -38,7 +38,8 @@ class Task {
     isDone = json['isDone'];
     category = json['category'];
     description = json['description'];
-    subtask = json['subtask'].cast<String>();
+    subtask =
+        json['subtask'] != null ? new Subtask.fromJson(json['subtask']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -48,7 +49,28 @@ class Task {
     data['isDone'] = this.isDone;
     data['category'] = this.category;
     data['description'] = this.description;
-    data['subtask'] = this.subtask;
+    if (this.subtask != null) {
+      data['subtask'] = this.subtask!.toJson();
+    }
+    return data;
+  }
+}
+
+class Subtask {
+  List<String>? tasks;
+  List<bool>? taskCases;
+
+  Subtask({this.tasks, this.taskCases});
+
+  Subtask.fromJson(Map<String, dynamic> json) {
+    tasks = json['tasks'].cast<String>();
+    taskCases = json['taskCases'].cast<bool>();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['tasks'] = this.tasks;
+    data['taskCases'] = this.taskCases;
     return data;
   }
 }

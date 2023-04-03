@@ -1,9 +1,13 @@
 {
-    "task":{
-        "title":"",
-        "body":"",
-        "taskId":0,
+    "task": {
+        "title": "",
+        "taskId": 0,
         "isDone": false,
-        "category":""
+        "category": "",
+        "description": "",
+        "subtask": {
+            "tasks":[""],
+            "taskCases":[false]
+        }
     }
 }
