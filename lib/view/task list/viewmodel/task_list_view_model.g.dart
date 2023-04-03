@@ -9,6 +9,22 @@ part of 'task_list_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
+  late final _$dataListAtom =
+      Atom(name: '_TaskListViewModelBase.dataList', context: context);
+
+  @override
+  List<Task> get dataList {
+    _$dataListAtom.reportRead();
+    return super.dataList;
+  }
+
+  @override
+  set dataList(List<Task> value) {
+    _$dataListAtom.reportWrite(value, super.dataList, () {
+      super.dataList = value;
+    });
+  }
+
   late final _$listviewlengthAtom =
       Atom(name: '_TaskListViewModelBase.listviewlength', context: context);
 
@@ -57,8 +73,27 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
     });
   }
 
+  late final _$getDataAsyncAction =
+      AsyncAction('_TaskListViewModelBase.getData', context: context);
+
+  @override
+  Future<void> getData() {
+    return _$getDataAsyncAction.run(() => super.getData());
+  }
+
   late final _$_TaskListViewModelBaseActionController =
       ActionController(name: '_TaskListViewModelBase', context: context);
+
+  @override
+  void openTask() {
+    final _$actionInfo = _$_TaskListViewModelBaseActionController.startAction(
+        name: '_TaskListViewModelBase.openTask');
+    try {
+      return super.openTask();
+    } finally {
+      _$_TaskListViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void changeIsLoading() {
@@ -74,6 +109,7 @@ mixin _$TaskListViewModel on _TaskListViewModelBase, Store {
   @override
   String toString() {
     return '''
+dataList: ${dataList},
 listviewlength: ${listviewlength},
 dataLength: ${dataLength},
 isLoading: ${isLoading}

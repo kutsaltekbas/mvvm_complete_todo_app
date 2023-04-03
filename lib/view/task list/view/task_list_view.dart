@@ -36,82 +36,91 @@ class TaskListView extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return Padding(
                                     padding: context.paddingNormal,
-                                    child: Container(
-                                      width: context.width,
-                                      height: 250.h,
-                                      decoration: BoxDecoration(
-                                          color: AppThemeLight.instance.theme
-                                              .colorScheme.background,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.black12,
-                                                offset: Offset(0, 5),
-                                                blurRadius: 5)
-                                          ]),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            padding: context.paddingLow,
-                                            width: 200.w,
-                                            height: 200.h,
-                                            child: ListTile(
-                                              contentPadding:
-                                                  context.paddingLow,
-                                              title: Text(
-                                                viewmodel.dataList[index].title
-                                                    .toString(),
-                                                style: TextStyle(
-                                                    fontSize: 22.sp,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              subtitle: Text(
-                                                viewmodel.dataList[index].body
-                                                    .toString(),
-                                                style:
-                                                    TextStyle(fontSize: 18.sp),
-                                              ),
-                                            ),
-                                          ),
-                                          Column(
-                                            children: [
-                                              Container(
-                                                height: 20.h,
-                                              ),
-                                              Container(
-                                                padding: context.paddingLow,
-                                                height: 50.w,
-                                                width: 100.w,
-                                                child: Text(
-                                                  "32 Days ago",
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        viewmodel.changeSelectedData(index);
+
+                                        viewmodel.openTask();
+                                      },
+                                      child: Container(
+                                        width: context.width,
+                                        height: 250.h,
+                                        decoration: BoxDecoration(
+                                            color: AppThemeLight.instance.theme
+                                                .colorScheme.background,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.black12,
+                                                  offset: Offset(0, 5),
+                                                  blurRadius: 5)
+                                            ]),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              padding: context.paddingLow,
+                                              width: 200.w,
+                                              height: 200.h,
+                                              child: ListTile(
+                                                contentPadding:
+                                                    context.paddingLow,
+                                                title: Text(
+                                                  viewmodel
+                                                      .dataList[index].title
+                                                      .toString(),
                                                   style: TextStyle(
-                                                      fontSize: 15.sp,
-                                                      fontStyle:
-                                                          FontStyle.italic),
+                                                      fontSize: 22.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                subtitle: Text(
+                                                  viewmodel.dataList[index]
+                                                      .description
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      fontSize: 18.sp),
                                                 ),
                                               ),
-                                              SizedBox(
-                                                height: 100.h,
-                                              ),
-                                              CircleAvatar(
-                                                  backgroundColor:
-                                                      Colors.greenAccent,
-                                                  child: Icon(Icons.done,
-                                                      size: 30.w,
-                                                      color: AppThemeLight
-                                                          .instance
-                                                          .theme
-                                                          .colorScheme
-                                                          .background))
-                                            ],
-                                          ),
-                                        ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Container(
+                                                  height: 20.h,
+                                                ),
+                                                Container(
+                                                  padding: context.paddingLow,
+                                                  height: 50.w,
+                                                  width: 100.w,
+                                                  child: Text(
+                                                    "32 Days ago",
+                                                    style: TextStyle(
+                                                        fontSize: 15.sp,
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 100.h,
+                                                ),
+                                                CircleAvatar(
+                                                    backgroundColor:
+                                                        Colors.greenAccent,
+                                                    child: Icon(Icons.done,
+                                                        size: 30.w,
+                                                        color: AppThemeLight
+                                                            .instance
+                                                            .theme
+                                                            .colorScheme
+                                                            .background))
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   );

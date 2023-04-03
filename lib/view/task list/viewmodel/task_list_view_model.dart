@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:http/http.dart' as http;
+import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 import '../../../model/task_data_model.dart.dart';
@@ -17,6 +19,13 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
   @observable
   List<Task> dataList = [];
   final dio = Dio();
+  @observable
+  int selectedData = 0;
+
+  @action
+  void openTask() {
+    navigator.navigateToPage(path: NavigationConstants.TASK_OPEN_VIEW, object: dataList[selectedData]);
+  }
 
   @action
   Future<void> getData() async {
@@ -30,6 +39,11 @@ abstract class _TaskListViewModelBase with Store, BaseViewModel {
     inspect(dataList);
   }
 
+  @action
+  void changeSelectedData(int index){
+    selectedData = index;
+  }
+  
   @observable
   int listviewlength = 0;
 
