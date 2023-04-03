@@ -5,4 +5,6 @@ class NavigationConstants {
   static const SETTINGS_VIEW = "/settingspage";
   static const TASK_LIST_VIEW = "/tasklistpage";
   static const TASK_VIEW = "/taskpage";
+  static const TASK_OPEN_VIEW = "/taskopenpage";
+
 }
