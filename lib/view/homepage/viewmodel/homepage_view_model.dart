@@ -53,7 +53,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
             actions: [
               SizedBox(
                 width: viewModelContext.width,
-                height: 150.h,
+                height: 70.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -81,7 +81,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                         onPressed: () {
                           navigator.navigateToPage(
                               path: NavigationConstants.TASK_VIEW,
-                              object: Text(""));
+                              object: addTaskTitleController.text);
                         },
                         child: Text(
                           "Add",
@@ -121,7 +121,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
               color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
             title: Text(
-              LocaleKeys.taskPage_addTastTitle.tr(),
+              "Enter the title of task",
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,

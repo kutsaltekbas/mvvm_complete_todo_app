@@ -21,41 +21,7 @@ class TestView extends StatelessWidget {
             appBar: AppBar(
               title: Text("Network Service Test"),
             ),
-            body: Center(
-              child: viewmodel.isLoading == true
-                  ? Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Observer(
-                          builder: (context) => Text(viewmodel.data.toString()),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ElevatedButton(
-                                onPressed: viewmodel.getData,
-                                child: Text("get data")),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            ElevatedButton(
-                                onPressed: viewmodel.postData,
-                                child: Text("post data"))
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        )
-                      ],
-                    ),
-            ));
+            body: FlutterLogo());
       },
     );
   }

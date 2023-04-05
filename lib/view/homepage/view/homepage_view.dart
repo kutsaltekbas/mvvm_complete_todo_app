@@ -28,47 +28,49 @@ class HomePageView extends StatelessWidget {
             elevation: 0,
             actions: [settingsIcon(viewmodel)],
           ),
-          body: Padding(
-            padding: EdgeInsets.all(20.w),
-            child: Container(
-              width: context.width,
-              height: context.height,
-              child: Column(
-                children: [
-                  showTaskCard(viewmodel, context),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  addTaskButton(context, viewmodel),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  headline2Text(),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Row(
-                    children: [
-                      dailyRoutineCard(viewmodel, context),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      schoolCard(viewmodel, context),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Row(
-                    children: [
-                      workCard(viewmodel, context),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      billCard(viewmodel, context),
-                    ],
-                  ),
-                ],
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(20.w),
+              child: Container(
+                width: context.width,
+                height: context.height,
+                child: Column(
+                  children: [
+                    showTaskCard(viewmodel, context),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    addTaskButton(context, viewmodel),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    headline2Text(),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Row(
+                      children: [
+                        dailyRoutineCard(viewmodel, context),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        schoolCard(viewmodel, context),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Row(
+                      children: [
+                        workCard(viewmodel, context),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        billCard(viewmodel, context),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

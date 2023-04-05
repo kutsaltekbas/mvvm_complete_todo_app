@@ -30,9 +30,16 @@ class NavigationRoute {
         return MaterialPageRoute(builder: (context) => TaskListView());
       case NavigationConstants.TASK_OPEN_VIEW:
         final Task task = args.arguments as Task;
-        return MaterialPageRoute(builder: (context) => TaskOpenView(task: task,));
+        return MaterialPageRoute(
+            builder: (context) => TaskOpenView(
+                  task: task,
+                ));
       case NavigationConstants.TASK_VIEW:
-        return MaterialPageRoute(builder: (context) => TaskView());
+        final String title = args.arguments as String;
+        return MaterialPageRoute(
+            builder: (context) => TaskView(
+                  title: title,
+                ));
 
       default:
         return MaterialPageRoute(

@@ -11,7 +11,8 @@ import '../viewmodel/task_view_model.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class TaskView extends StatelessWidget {
-  const TaskView({Key? key}) : super(key: key);
+  const TaskView({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class TaskView extends StatelessWidget {
             backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
             elevation: 0,
             title: Text(
-              LocaleKeys.task_taskTitle.tr(),
+              title,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24.sp,
@@ -44,7 +45,12 @@ class TaskView extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    viewmodel.changeTitle(title);
+                    viewmodel.postTask();
+                    // viewmodel.fillCaseList();
+                    // viewmodel.postData();
+                  },
                   icon: Icon(
                     Icons.fact_check,
                     color: AppThemeLight.instance.theme.colorScheme.onSurface,
@@ -83,29 +89,21 @@ class TaskView extends StatelessWidget {
                       child: Container(
                         width: context.width,
                         height: 100.h,
-                        child: CheckboxListTile(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          title: Text(
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            viewmodel.taskList[index],
-                            style: TextStyle(
-                                color: AppThemeLight
-                                    .instance.theme.colorScheme.onBackground,
-                                fontSize: 16.sp),
+                        child: Card(
+                          elevation: 5,
+                          child: Container(
+                            padding: context.paddingLow,
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 4,
+                              viewmodel.taskList[index],
+                              style: TextStyle(
+                                  fontSize: 15.sp,
+                                  color: AppThemeLight
+                                      .instance.theme.colorScheme.onBackground),
+                            ),
                           ),
-                          tileColor: AppThemeLight
-                              .instance.theme.colorScheme.background,
-                          checkColor: AppThemeLight
-                              .instance.theme.colorScheme.background,
-                          activeColor: AppThemeLight
-                              .instance.theme.colorScheme.onBackground,
-                          value: viewmodel.checkboxValueList[index],
-                          onChanged: (bool? value) {
-                            print("onchanged $value");
-                            viewmodel.onCheckboxChanged(index, value!);
-                          },
                         ),
                       ));
                 }));

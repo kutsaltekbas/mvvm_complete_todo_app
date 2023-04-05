@@ -9,6 +9,22 @@ part of 'task_open_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$TaskOpenViewModel on _TaskOpenViewModelBase, Store {
+  late final _$selectedTaskAtom =
+      Atom(name: '_TaskOpenViewModelBase.selectedTask', context: context);
+
+  @override
+  String get selectedTask {
+    _$selectedTaskAtom.reportRead();
+    return super.selectedTask;
+  }
+
+  @override
+  set selectedTask(String value) {
+    _$selectedTaskAtom.reportWrite(value, super.selectedTask, () {
+      super.selectedTask = value;
+    });
+  }
+
   late final _$taskAtom =
       Atom(name: '_TaskOpenViewModelBase.task', context: context);
 
@@ -83,6 +99,14 @@ mixin _$TaskOpenViewModel on _TaskOpenViewModelBase, Store {
         .run(() => super.changeCircleAvatarColor(index));
   }
 
+  late final _$updateDataAsyncAction =
+      AsyncAction('_TaskOpenViewModelBase.updateData', context: context);
+
+  @override
+  Future<void> updateData() {
+    return _$updateDataAsyncAction.run(() => super.updateData());
+  }
+
   late final _$_TaskOpenViewModelBaseActionController =
       ActionController(name: '_TaskOpenViewModelBase', context: context);
 
@@ -111,6 +135,7 @@ mixin _$TaskOpenViewModel on _TaskOpenViewModelBase, Store {
   @override
   String toString() {
     return '''
+selectedTask: ${selectedTask},
 task: ${task},
 taskCaseList: ${taskCaseList},
 value: ${value},
