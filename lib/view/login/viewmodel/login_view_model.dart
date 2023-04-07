@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/enums/locale_keys_enum.dart';
+import 'package:mvvm_complete_todo_app/core/init/cache/locale_manager.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 import '../../../core/constants/navigation/navigation_constants.dart';
@@ -35,9 +37,12 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   }
 
   @action
-  void login() {
+  Future<void> login() async {
     if (dataList[0]["eMail"] == emailController.text &&
         dataList[0]["password"] == "1234") {
+     await LocaleManager.instance
+          .setStringValue(PreferencesKeys.IS_ALREADY_LOGGED_IN, "1");
+      inspect(LocaleManager.instance.getStringValue(PreferencesKeys.IS_ALREADY_LOGGED_IN));
       navigator.navigateToPageClear(
           path: NavigationConstants.HOME_PAGE_VIEW, object: Text(""));
     }

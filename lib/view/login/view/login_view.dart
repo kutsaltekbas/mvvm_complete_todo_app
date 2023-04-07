@@ -32,7 +32,10 @@ class LoginView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  backButton(viewmodel),
+                  SizedBox(
+                    height: 60.h,
+                  ),
+                  //backButton(viewmodel),
                   topScreen(),
                   SizedBox(
                     height: 80.h,
@@ -75,7 +78,7 @@ class LoginView extends StatelessWidget {
 
   Padding userPng() {
     return Padding(
-      padding: EdgeInsets.only(right: 25.w),
+      padding: EdgeInsets.only(right: 20.w),
       child: Container(
         width: 150.w,
         height: 150.h,
@@ -120,7 +123,7 @@ class LoginView extends StatelessWidget {
             height: 150.h,
           ),
           loginButton(viewmodel),
-          signUpButton(viewmodel),
+          //signUpButton(viewmodel),
           SizedBox(
             height: 10.h,
           )
@@ -160,7 +163,9 @@ class LoginView extends StatelessWidget {
               elevation: 3,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20))),
-          onPressed: viewmodel.login,
+          onPressed: () async {
+            await viewmodel.login();
+          },
           child: Text(
             LocaleKeys.login_login.tr(),
             style: TextStyle(fontSize: 20.sp),
@@ -248,7 +253,7 @@ class LoginView extends StatelessWidget {
         maxLines: 2,
         style: TextStyle(
           color: AppThemeLight.instance.theme.colorScheme.onBackground,
-          fontSize: 48.sp,
+          fontSize: 50.sp,
           fontWeight: FontWeight.bold,
           shadows: <Shadow>[
             Shadow(

@@ -9,6 +9,22 @@ part of 'login_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$LoginViewModel on _LoginViewModelBase, Store {
+  late final _$dioAtom =
+      Atom(name: '_LoginViewModelBase.dio', context: context);
+
+  @override
+  Dio get dio {
+    _$dioAtom.reportRead();
+    return super.dio;
+  }
+
+  @override
+  set dio(Dio value) {
+    _$dioAtom.reportWrite(value, super.dio, () {
+      super.dio = value;
+    });
+  }
+
   late final _$emailControllerAtom =
       Atom(name: '_LoginViewModelBase.emailController', context: context);
 
@@ -57,6 +73,30 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
     });
   }
 
+  late final _$dataListAtom =
+      Atom(name: '_LoginViewModelBase.dataList', context: context);
+
+  @override
+  List<Map<String, dynamic>> get dataList {
+    _$dataListAtom.reportRead();
+    return super.dataList;
+  }
+
+  @override
+  set dataList(List<Map<String, dynamic>> value) {
+    _$dataListAtom.reportWrite(value, super.dataList, () {
+      super.dataList = value;
+    });
+  }
+
+  late final _$loginAsyncAction =
+      AsyncAction('_LoginViewModelBase.login', context: context);
+
+  @override
+  Future<void> login() {
+    return _$loginAsyncAction.run(() => super.login());
+  }
+
   late final _$_LoginViewModelBaseActionController =
       ActionController(name: '_LoginViewModelBase', context: context);
 
@@ -77,17 +117,6 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
         name: '_LoginViewModelBase.returnOnboard');
     try {
       return super.returnOnboard();
-    } finally {
-      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void login() {
-    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction(
-        name: '_LoginViewModelBase.login');
-    try {
-      return super.login();
     } finally {
       _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -118,9 +147,11 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
   @override
   String toString() {
     return '''
+dio: ${dio},
 emailController: ${emailController},
 passwordController: ${passwordController},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+dataList: ${dataList}
     ''';
   }
 }
