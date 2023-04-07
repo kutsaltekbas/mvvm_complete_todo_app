@@ -1,5 +1,6 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/init/cache/locale_manager.dart';
 
 import '../../init/navigation/navigation_service.dart';
 
@@ -14,8 +15,9 @@ class BaseView<T extends Store> extends StatefulWidget {
       required this.onModelReady});
   final VoidCallback? onDispose; // Sayfadan çıkıldığında ex olur.
   final T viewModel; // Çizilecek sayfanın alacağı viewModel.
-  final Function(BuildContext contex, T value) onPageBuilder; // Sayfayı çizecek olan fonksiyon.
-  final void Function(T model) onModelReady; 
+  final Function(BuildContext contex, T value)
+      onPageBuilder; // Sayfayı çizecek olan fonksiyon.
+  final void Function(T model) onModelReady;
 
   @override
   _BaseViewState<T> createState() => _BaseViewState<T>();
@@ -23,9 +25,9 @@ class BaseView<T extends Store> extends StatefulWidget {
 
 class _BaseViewState<T extends Store> extends State<BaseView<T>> {
   late T model;
-
+  LocaleManager localeManager = LocaleManager.instance;
   NavigationService navigator = NavigationService.instance;
-  
+
   @override
   void initState() {
     model = widget.viewModel;
@@ -46,6 +48,3 @@ class _BaseViewState<T extends Store> extends State<BaseView<T>> {
     return widget.onPageBuilder(context, model);
   }
 }
-
-
-

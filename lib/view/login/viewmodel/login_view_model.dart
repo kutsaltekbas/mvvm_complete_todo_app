@@ -40,9 +40,8 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   Future<void> login() async {
     if (dataList[0]["eMail"] == emailController.text &&
         dataList[0]["password"] == "1234") {
-     await LocaleManager.instance
-          .setStringValue(PreferencesKeys.IS_ALREADY_LOGGED_IN, "1");
-      inspect(LocaleManager.instance.getStringValue(PreferencesKeys.IS_ALREADY_LOGGED_IN));
+      localeManager.setStringValue(PreferencesKeys.TOKEN, "1");
+
       navigator.navigateToPageClear(
           path: NavigationConstants.HOME_PAGE_VIEW, object: Text(""));
     }

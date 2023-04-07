@@ -25,10 +25,8 @@ abstract class _SplashScreenViewModelBase with Store, BaseViewModel {
   @override
   Future<void> init() async {
     await Future.delayed(Duration(seconds: 3));
-    var instance = LocaleManager.instance
-        .getStringValue(PreferencesKeys.IS_ALREADY_LOGGED_IN);
-    inspect(instance);
-    if (instance == "1") {
+
+    if (localeManager.getStringValue(PreferencesKeys.TOKEN) == "1") {
       navigator.navigateToPageClear(
           path: NavigationConstants.HOME_PAGE_VIEW, object: Text(""));
     } else {
