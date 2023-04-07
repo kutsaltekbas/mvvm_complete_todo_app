@@ -1,17 +1,67 @@
 {
     "splash": {
-        "welcome": "HOŞ GELDİN"
+        "welcome": "HOŞGELDİN",
+        "todo": "TO DO"
+    },
+    "onBoard": {
+        "title": "İstediğin zaman not al",
+        "subtitle": "not almanın en kolay yolu",
+        "facebookLogin": "Facebook ile giriş yap",
+        "googleLogin": "Google ile giriş yap",
+        "emailLogin": "E-Mail ile giriş yap"
     },
     "login": {
-        "tab1": "Giriş yapmak",
-        "tab2": "Üye olmak",
-        "email": "E-posta",
+        "tab1": "Giriş Yap",
+        "tab2": "Kayıt Ol",
+        "email": "Email",
         "password": "Şifre",
-        "forgotText": "Parolanızı mı unuttunuz?",
-        "login": "Giriş yapmak",
-        "dontAccount": "Hesabınız yok mu?"    
+        "forgotText": "Şifremi unuttum?",
+        "login": "Giriş yap",
+        "dontAccount": "Dont have account?",
+        "orConnectWith": "or connect with",
+        "welcomeBack": "Merhaba!",
+        "signUp": "Kayıt Ol"
+    },
+    "task": {
+        "taskListTitle": "Yapılacaklar",
+        "taskTitle": "Başlık"
+    },
+    "taskPage": {
+        "addTastTitle": "Yeni Görev",
+        "addDescription":"Açıklama girin"
     },
     "home": {
+        "addTaskDialog":{
+            "back":"Geri",
+            "add":"Ekle",
+            "title":"Başlığı girin"
+        },
+        "card1": {
+            "title": "Görevleri listele",
+            "subtitle": "çok iyi gidiyorsun"
+        },
+        "card2": {
+            "title": "Görev Ekle"
+        },
+        "heading2": {
+            "headline1": "Hazır görev şablonları "
+        },
+        "card_3_0": {
+            "title": "Günlük rutin",
+            "subtitle": "zaman yönetimini geliştir"
+        },
+        "card_3_1": {
+            "title": "Okul",
+            "subtitle": "ödevlerini yapmayı unutma"
+        },
+        "card_3_2": {
+            "title": "İş",
+            "subtitle": "toplantılarını kaçırma"
+        },
+        "card_3_3": {
+            "title": "Faturalar",
+            "subtitle": "elektriğin kesilmesin istiyorsan"
+        },
         "build": {
             "tabbar": {
                 "tab1": "Latest",
@@ -22,17 +72,24 @@
             "subTitle": "Recommended"
         },
         "setting": {
-            "title": "Settings",
+            "user":"Kullanıcı",
+            "title": "Ayarlar",
+            "account":"Hesap",
             "about": {
-                "title": "About Project",
-                "contribitions": "Project Contributors"
+                "title": "Uygulama Hakkında",
+                "contribitions": "Geliştiriciler",
+                "info":"Bilgi"
             },
             "core": {
                 "title": "Project Core",
-                "themeTitle": "Theme Change",
+                "themeTitle": "Tema Değiştir",
                 "themeDesc": "You can change applicaton theme.",
-                "langTitle": "Language Change",
-                "langDesc": "You can change applicaton language."
+                "langTitle": "Dil Değiştir",
+                "langDesc": "You can change applicaton language.",
+                "changePasswordTitle": "Şifreni Sıfırla",
+                "changePasswordDesc": "You can reset your password.",
+                "signOutTitle": "Çıkış Yap",
+                "signOutDesc": "You can sign out your account."
             },
             "exit": "Exit"
         }

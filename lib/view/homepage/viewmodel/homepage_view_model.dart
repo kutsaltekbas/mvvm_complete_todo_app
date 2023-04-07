@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/init/lang/language_manager.dart';
 import '../../../core/constants/navigation/navigation_constants.dart';
 
 import '../../../core/base/model/base_view_model.dart';
@@ -65,7 +66,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                           Navigator.pop(viewModelContext);
                         },
                         child: Text(
-                          "Back",
+                          LocaleKeys.home_addTaskDialog_back.tr(),
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18.sp,
@@ -84,7 +85,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                               object: addTaskTitleController.text);
                         },
                         child: Text(
-                          "Add",
+                          LocaleKeys.home_addTaskDialog_add.tr(),
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18.sp,
@@ -121,7 +122,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
               color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
             title: Text(
-              "Enter the title of task",
+              LocaleKeys.home_addTaskDialog_title.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,

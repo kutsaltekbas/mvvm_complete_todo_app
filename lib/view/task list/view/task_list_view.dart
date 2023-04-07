@@ -105,7 +105,7 @@ class TaskListView extends StatelessWidget {
           height: 50.w,
           width: 100.w,
           child: Text(
-            "32 Days ago",
+            "",
             style: TextStyle(fontSize: 15.sp, fontStyle: FontStyle.italic),
           ),
         ),

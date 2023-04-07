@@ -142,7 +142,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                         Navigator.pop(viewModelContext);
                       },
                       child: Text(
-                        "Back",
+                        LocaleKeys.home_addTaskDialog_back,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,
@@ -157,7 +157,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                               .instance.theme.colorScheme.onSurface),
                       onPressed: addTaskToList,
                       child: Text(
-                        "Add",
+                        LocaleKeys.home_addTaskDialog_add.tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,
@@ -224,7 +224,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                         Navigator.pop(viewModelContext);
                       },
                       child: Text(
-                        "Back",
+                        LocaleKeys.home_addTaskDialog_back.tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,
@@ -247,7 +247,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                             object: Text(""));
                       },
                       child: Text(
-                        "Add",
+                        LocaleKeys.home_addTaskDialog_add.tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,
@@ -283,7 +283,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
               color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
             title: Text(
-              "Add Description",
+              LocaleKeys.taskPage_addDescription.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,

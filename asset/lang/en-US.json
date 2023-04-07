@@ -27,9 +27,15 @@
         "taskTitle": "Title"
     },
     "taskPage": {
-        "addTastTitle": "New Task"
+        "addTastTitle": "New Task",
+        "addDescription":"Add Description"
     },
     "home": {
+        "addTaskDialog":{
+            "back":"Back",
+            "add":"Add",
+            "title":"Enter the title"
+        },
         "card1": {
             "title": "Show Tasks",
             "subtitle": "go on you're doing good"
@@ -66,10 +72,13 @@
             "subTitle": "Recommended"
         },
         "setting": {
+            "user":"User",
             "title": "Settings",
+            "account":"Account",
             "about": {
                 "title": "About Project",
-                "contribitions": "Project Contributors"
+                "contribitions": "Project Contributors",
+                "info":"Info"
             },
             "core": {
                 "title": "Project Core",

@@ -25,7 +25,12 @@ abstract class  LocaleKeys {
   static const task_taskTitle = 'task.taskTitle';
   static const task = 'task';
   static const taskPage_addTastTitle = 'taskPage.addTastTitle';
+  static const taskPage_addDescription = 'taskPage.addDescription';
   static const taskPage = 'taskPage';
+  static const home_addTaskDialog_back = 'home.addTaskDialog.back';
+  static const home_addTaskDialog_add = 'home.addTaskDialog.add';
+  static const home_addTaskDialog_title = 'home.addTaskDialog.title';
+  static const home_addTaskDialog = 'home.addTaskDialog';
   static const home_card1_title = 'home.card1.title';
   static const home_card1_subtitle = 'home.card1.subtitle';
   static const home_card1 = 'home.card1';
@@ -52,9 +57,12 @@ abstract class  LocaleKeys {
   static const home_build_tabbar = 'home.build.tabbar';
   static const home_build_subTitle = 'home.build.subTitle';
   static const home_build = 'home.build';
+  static const home_setting_user = 'home.setting.user';
   static const home_setting_title = 'home.setting.title';
+  static const home_setting_account = 'home.setting.account';
   static const home_setting_about_title = 'home.setting.about.title';
   static const home_setting_about_contribitions = 'home.setting.about.contribitions';
+  static const home_setting_about_info = 'home.setting.about.info';
   static const home_setting_about = 'home.setting.about';
   static const home_setting_core_title = 'home.setting.core.title';
   static const home_setting_core_themeTitle = 'home.setting.core.themeTitle';
