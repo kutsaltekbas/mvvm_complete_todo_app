@@ -74,18 +74,11 @@ class TaskListView extends StatelessWidget {
                             offset: Offset(0, 5),
                             blurRadius: 5)
                       ]),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: context.paddingLow,
-                        width: 200.w,
-                        height: 200.h,
-                        child: taskListTile(context, viewmodel, index),
-                      ),
-                      taskCardRight(context),
-                    ],
+                  child: Container(
+                    padding: context.paddingLow,
+                    width: 200.w,
+                    height: 200.h,
+                    child: taskListTile(context, viewmodel, index),
                   ),
                 ),
               ),
