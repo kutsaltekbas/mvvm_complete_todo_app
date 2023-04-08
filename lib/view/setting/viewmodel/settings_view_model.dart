@@ -23,7 +23,12 @@ abstract class _SettingsViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
   @override
-  Future<void> init() async {}
+  Future<void> init() async {
+    eMail= localeManager.getStringValue(PreferencesKeys.E_MAIL);
+  }
+
+  @observable
+  String eMail = "";
 
   @action
   void changeIsLoading() {

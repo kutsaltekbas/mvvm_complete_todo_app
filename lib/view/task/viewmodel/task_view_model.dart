@@ -142,7 +142,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                         Navigator.pop(viewModelContext);
                       },
                       child: Text(
-                        LocaleKeys.home_addTaskDialog_back,
+                        LocaleKeys.home_addTaskDialog_back.tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,

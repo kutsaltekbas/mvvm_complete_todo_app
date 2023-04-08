@@ -345,14 +345,14 @@ class SettingsView extends StatelessWidget {
           Container(
             width: context.width,
             height: 100.h,
-            child: userCard(),
+            child: userCard(viewmodel),
           ),
         ],
       ),
     );
   }
 
-  ListTile userCard() {
+  ListTile userCard(SettingsViewModel viewmodel) {
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: AppThemeLight.instance.theme.colorScheme.onSurface,
@@ -368,7 +368,7 @@ class SettingsView extends StatelessWidget {
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
       ),
       subtitle: Text(
-        "senbitmissin@selahattinozdemir.com",
+        viewmodel.eMail,
         style: TextStyle(fontSize: 16.sp),
       ),
       tileColor: AppThemeLight.instance.theme.colorScheme.background,
