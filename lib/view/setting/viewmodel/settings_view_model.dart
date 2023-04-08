@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/constants/enums/locale_keys_enum.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/language_manager.dart';
 
 import '../../../core/base/model/base_view_model.dart';
@@ -12,6 +13,7 @@ class SettingsViewModel = _SettingsViewModelBase with _$SettingsViewModel;
 abstract class _SettingsViewModelBase with Store, BaseViewModel {
   @observable
   bool isLoading = false;
+ 
 
   @action
   void returnHomePage() {
@@ -21,7 +23,9 @@ abstract class _SettingsViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
   @override
-  void init() {}
+  Future<void> init() async {
+    
+  }
 
   @action
   void changeIsLoading() {
@@ -30,6 +34,13 @@ abstract class _SettingsViewModelBase with Store, BaseViewModel {
 
   @action
   void changeLanguage() {
-    viewModelContext.setLocale(LanguageManager.instance.trLocale);
+    if (localeManager.getStringValue(PreferencesKeys.LANGUAGE) == "") {
+      viewModelContext.setLocale(LanguageManager.instance.trLocale);
+      localeManager.setStringValue(PreferencesKeys.LANGUAGE, "1");
+    }
+    else if (localeManager.getStringValue(PreferencesKeys.LANGUAGE) == "1") {
+      viewModelContext.setLocale(LanguageManager.instance.enLocale);
+      localeManager.setStringValue(PreferencesKeys.LANGUAGE, "");
+    }
   }
 }
