@@ -144,12 +144,9 @@ class TaskListView extends StatelessWidget {
       padding: context.paddingLow,
       child: Row(
         children: [
-          FloatingActionButton(
+          IconButton(
             onPressed: viewmodel.returnHomePage,
-            elevation: 0,
-            backgroundColor:
-                AppThemeLight.instance.theme.colorScheme.background,
-            child: Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new_outlined,
               color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
