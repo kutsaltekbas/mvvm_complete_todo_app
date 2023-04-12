@@ -136,15 +136,14 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.onSurface),
+                          backgroundColor: viewModelContext.colors.background),
                       onPressed: () {
                         Navigator.pop(viewModelContext);
                       },
                       child: Text(
                         LocaleKeys.home_addTaskDialog_back.tr(),
                         style: TextStyle(
-                            color: Colors.white,
+                            color: viewModelContext.colors.secondaryContainer,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold),
                       )),
@@ -153,13 +152,12 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.onSurface),
+                          backgroundColor: viewModelContext.colors.background),
                       onPressed: addTaskToList,
                       child: Text(
                         LocaleKeys.home_addTaskDialog_add.tr(),
                         style: TextStyle(
-                            color: Colors.white,
+                            color: viewModelContext.colors.secondaryContainer,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold),
                       ))
@@ -178,26 +176,25 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                     controller: taskController,
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: AppThemeLight
-                            .instance.theme.colorScheme.background),
+                        fillColor: viewModelContext.colors.background),
                   ),
                 ),
               ),
               SizedBox(height: 20.h),
             ],
             elevation: 10,
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+            backgroundColor: viewModelContext.colors.surface,
             icon: Icon(
               Icons.task_alt_rounded,
               size: 32.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: viewModelContext.colors.secondaryContainer,
             ),
             title: Text(
               LocaleKeys.taskPage_addTastTitle.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
+                  color: viewModelContext.colors.secondaryContainer),
             ),
           );
         });
@@ -218,15 +215,14 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.onSurface),
+                          backgroundColor: viewModelContext.colors.background),
                       onPressed: () {
                         Navigator.pop(viewModelContext);
                       },
                       child: Text(
                         LocaleKeys.home_addTaskDialog_back.tr(),
                         style: TextStyle(
-                            color: Colors.white,
+                            color: viewModelContext.colors.secondaryContainer,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold),
                       )),
@@ -235,8 +231,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppThemeLight
-                              .instance.theme.colorScheme.onSurface),
+                          backgroundColor: viewModelContext.colors.background),
                       onPressed: () async {
                         changeDescription(postTaskController.text);
 
@@ -249,7 +244,7 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                       child: Text(
                         LocaleKeys.home_addTaskDialog_add.tr(),
                         style: TextStyle(
-                            color: Colors.white,
+                            color: viewModelContext.colors.secondaryContainer,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold),
                       ))
@@ -268,26 +263,25 @@ abstract class _TaskViewModelBase with Store, BaseViewModel {
                     controller: postTaskController,
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: AppThemeLight
-                            .instance.theme.colorScheme.background),
+                        fillColor: viewModelContext.colors.background),
                   ),
                 ),
               ),
               SizedBox(height: 20.h),
             ],
             elevation: 10,
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+            backgroundColor: viewModelContext.colors.surface,
             icon: Icon(
               Icons.task_alt_rounded,
               size: 32.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: viewModelContext.colors.secondaryContainer,
             ),
             title: Text(
               LocaleKeys.taskPage_addDescription.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
+                  color: viewModelContext.colors.secondaryContainer),
             ),
           );
         });
