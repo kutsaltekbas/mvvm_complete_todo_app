@@ -20,7 +20,7 @@ class SettingsView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+          backgroundColor: context.colors.surface,
           body: pageBody(context, viewmodel),
         );
       },
@@ -35,11 +35,11 @@ class SettingsView extends StatelessWidget {
         children: [
           topPage(context, viewmodel),
           accountText(context),
-          changeThemeCard(context,viewmodel),
+          changeThemeCard(context, viewmodel),
           SizedBox(
             height: 20.h,
           ),
-          changeLanguageCard(context,viewmodel),
+          changeLanguageCard(context, viewmodel),
           SizedBox(
             height: 20.h,
           ),
@@ -47,7 +47,7 @@ class SettingsView extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          signOutCard(context,viewmodel),
+          signOutCard(context, viewmodel),
           SizedBox(
             height: 10.h,
           ),
@@ -76,21 +76,27 @@ class SettingsView extends StatelessWidget {
               BoxShadow(
                   color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
             ],
-            color: AppThemeLight.instance.theme.colorScheme.background,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(10)),
         child: ListTile(
-          leading: Icon(Icons.developer_board),
+          leading: Icon(
+            Icons.developer_board,
+            color: context.colors.secondaryContainer,
+          ),
           trailing: IconButton(
             icon: Icon(
               Icons.arrow_forward_ios_rounded,
               size: 24.h,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             onPressed: () {},
           ),
           title: Text(
             LocaleKeys.home_setting_about_contribitions.tr(),
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+                color: context.colors.secondaryContainer),
           ),
         ),
       ),
@@ -108,21 +114,27 @@ class SettingsView extends StatelessWidget {
               BoxShadow(
                   color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
             ],
-            color: AppThemeLight.instance.theme.colorScheme.background,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(10)),
         child: ListTile(
-          leading: Icon(Icons.contact_mail),
+          leading: Icon(
+            Icons.contact_mail,
+            color: context.colors.secondaryContainer,
+          ),
           trailing: IconButton(
             icon: Icon(
               Icons.arrow_forward_ios_rounded,
               size: 24.h,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             onPressed: () {},
           ),
           title: Text(
             LocaleKeys.home_setting_about_title.tr(),
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+                color: context.colors.secondaryContainer),
           ),
         ),
       ),
@@ -134,12 +146,15 @@ class SettingsView extends StatelessWidget {
       padding: context.paddingLow,
       child: Text(
         LocaleKeys.home_setting_about_info.tr(),
-        style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+            color: context.colors.secondaryContainer),
       ),
     );
   }
 
-  Padding signOutCard(BuildContext context,SettingsViewModel viewModel) {
+  Padding signOutCard(BuildContext context, SettingsViewModel viewModel) {
     return Padding(
       padding: context.paddingNormalHorizontal,
       child: GestureDetector(
@@ -152,25 +167,28 @@ class SettingsView extends StatelessWidget {
                 BoxShadow(
                     color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
               ],
-              color: AppThemeLight.instance.theme.colorScheme.background,
+              color: context.colors.background,
               borderRadius: BorderRadius.circular(10)),
           child: ListTile(
             leading: Icon(
               Icons.exit_to_app,
               size: 24.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             trailing: IconButton(
               icon: Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 24.h,
-                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                color: context.colors.secondaryContainer,
               ),
               onPressed: () {},
             ),
             title: Text(
               LocaleKeys.home_setting_core_signOutTitle.tr(),
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: context.colors.secondaryContainer),
             ),
             // subtitle: Text(
             //   LocaleKeys.home_setting_core_signOutDesc.tr(),
@@ -193,25 +211,28 @@ class SettingsView extends StatelessWidget {
               BoxShadow(
                   color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
             ],
-            color: AppThemeLight.instance.theme.colorScheme.background,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(10)),
         child: ListTile(
           leading: Icon(
             Icons.change_circle,
             size: 24.w,
-            color: AppThemeLight.instance.theme.colorScheme.onSurface,
+            color: context.colors.secondaryContainer,
           ),
           trailing: IconButton(
             icon: Icon(
               Icons.arrow_forward_ios_rounded,
               size: 24.h,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             onPressed: () {},
           ),
           title: Text(
             LocaleKeys.home_setting_core_changePasswordTitle.tr(),
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+                color: context.colors.secondaryContainer),
           ),
           // subtitle: Text(
           //   LocaleKeys.home_setting_core_changePasswordDesc.tr(),
@@ -222,7 +243,8 @@ class SettingsView extends StatelessWidget {
     );
   }
 
-  Padding changeLanguageCard(BuildContext context,SettingsViewModel viewmodel) {
+  Padding changeLanguageCard(
+      BuildContext context, SettingsViewModel viewmodel) {
     return Padding(
       padding: context.paddingNormalHorizontal,
       child: GestureDetector(
@@ -235,25 +257,28 @@ class SettingsView extends StatelessWidget {
                 BoxShadow(
                     color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
               ],
-              color: AppThemeLight.instance.theme.colorScheme.background,
+              color: context.colors.background,
               borderRadius: BorderRadius.circular(10)),
           child: ListTile(
             leading: Icon(
               Icons.language_rounded,
               size: 24.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             trailing: IconButton(
               icon: Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 24.h,
-                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                color: context.colors.secondaryContainer,
               ),
               onPressed: () {},
             ),
             title: Text(
               LocaleKeys.home_setting_core_langTitle.tr(),
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: context.colors.secondaryContainer),
             ),
             // subtitle: Text(
             //   LocaleKeys.home_setting_core_langDesc.tr(),
@@ -267,7 +292,7 @@ class SettingsView extends StatelessWidget {
     );
   }
 
-  Padding changeThemeCard(BuildContext context,SettingsViewModel viewmodel) {
+  Padding changeThemeCard(BuildContext context, SettingsViewModel viewmodel) {
     return Padding(
       padding: context.paddingNormalHorizontal,
       child: GestureDetector(
@@ -280,25 +305,28 @@ class SettingsView extends StatelessWidget {
                 BoxShadow(
                     color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
               ],
-              color: AppThemeLight.instance.theme.colorScheme.background,
+              color: context.colors.background,
               borderRadius: BorderRadius.circular(10)),
           child: ListTile(
             leading: Icon(
               Icons.lightbulb,
               size: 24.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             trailing: IconButton(
               icon: Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 24.h,
-                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                color: context.colors.secondaryContainer,
               ),
               onPressed: () {},
             ),
             title: Text(
               LocaleKeys.home_setting_core_themeTitle.tr(),
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: context.colors.secondaryContainer),
             ),
             // subtitle: Text(
             //   LocaleKeys.home_setting_core_themeDesc.tr(),
@@ -315,7 +343,10 @@ class SettingsView extends StatelessWidget {
       padding: context.paddingLow,
       child: Text(
         LocaleKeys.home_setting_account.tr(),
-        style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            fontSize: 24.sp,
+            fontWeight: FontWeight.bold,
+            color: context.colors.secondaryContainer),
       ),
     );
   }
@@ -324,7 +355,7 @@ class SettingsView extends StatelessWidget {
     return Container(
       width: context.width,
       height: 190.h,
-      color: AppThemeLight.instance.theme.colorScheme.background,
+      color: context.colors.surface,
       child: Column(
         children: [
           SizedBox(
@@ -332,11 +363,11 @@ class SettingsView extends StatelessWidget {
             height: 70.h,
             child: Row(
               children: [
-                goBackButton(viewmodel),
+                goBackButton(viewmodel, context),
                 SizedBox(
                   width: 110.w,
                 ),
-                title(),
+                title(context),
               ],
             ),
           ),
@@ -348,49 +379,55 @@ class SettingsView extends StatelessWidget {
           Container(
             width: context.width,
             height: 100.h,
-            child: userCard(viewmodel),
+            child: userCard(viewmodel, context),
           ),
         ],
       ),
     );
   }
 
-  ListTile userCard(SettingsViewModel viewmodel) {
+  ListTile userCard(SettingsViewModel viewmodel, BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundColor: AppThemeLight.instance.theme.colorScheme.onSurface,
+        backgroundColor: context.colors.background,
         radius: 30.h,
         child: Icon(
           Icons.person,
           size: 30.w,
-          color: AppThemeLight.instance.theme.colorScheme.background,
+          color: context.colors.secondaryContainer,
         ),
       ),
       title: Text(
         LocaleKeys.home_setting_user.tr(),
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            color: context.colors.secondaryContainer),
       ),
       subtitle: Text(
         viewmodel.eMail,
         style: TextStyle(fontSize: 16.sp),
       ),
-      tileColor: AppThemeLight.instance.theme.colorScheme.background,
+      tileColor: context.colors.background,
     );
   }
 
-  Text title() {
+  Text title(BuildContext context) {
     return Text(
       LocaleKeys.home_setting_title.tr(),
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 24.sp,
+          color: context.colors.secondaryContainer),
     );
   }
 
-  IconButton goBackButton(SettingsViewModel viewmodel) {
+  IconButton goBackButton(SettingsViewModel viewmodel, BuildContext context) {
     return IconButton(
       onPressed: viewmodel.returnHomePage,
       icon: Icon(Icons.arrow_back_ios_new_rounded),
       iconSize: 25.w,
-      color: AppThemeLight.instance.theme.colorScheme.onSurface,
+      color: context.colors.secondaryContainer,
     );
   }
 }

@@ -24,6 +24,7 @@ class ThemeManager extends ChangeNotifier implements IThemeManager {
 
   @override
   ThemeData currentTheme = ThemeEnum.LIGHT.generateTheme;
+  @override
   ThemeEnum currentThemeEnum = ThemeEnum.LIGHT;
 
   @override

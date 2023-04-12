@@ -41,7 +41,7 @@ class CustomLightTheme extends AppTheme {
         tertiaryContainer: Color(0xffBB79E5), //
         onTertiary: Color(0xffA1ABBC), //
         onSurfaceVariant: Color(0xff6F7490), //
-        secondaryContainer: Color(0xFFE5E5E5), //
+        secondaryContainer: Colors.black, //
         onTertiaryContainer: Color(0xffDADADC), //
         onErrorContainer: Color(0xffffcc86), //
         inversePrimary: Color(0xFFDB4437),
