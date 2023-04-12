@@ -21,12 +21,12 @@ class HomePageView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+          backgroundColor: context.colors.surface,
           appBar: AppBar(
-            title: title(),
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+            title: title(context),
+            backgroundColor: context.colors.surface,
             elevation: 0,
-            actions: [settingsIcon(viewmodel)],
+            actions: [settingsIcon(viewmodel, context)],
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -41,7 +41,7 @@ class HomePageView extends StatelessWidget {
                   SizedBox(
                     height: 20.h,
                   ),
-                  headline2Text(),
+                  headline2Text(context),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -82,7 +82,7 @@ class HomePageView extends StatelessWidget {
         width: 200.w,
         height: 150.h,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -108,13 +108,14 @@ class HomePageView extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color: AppThemeLight
-                              .instance.theme.colorScheme.onBackground),
+                          color: context.colors.secondaryContainer),
                     ),
                     Text(
                       LocaleKeys.home_card_3_3_subtitle.tr(),
                       style: TextStyle(
-                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                          color: context.colors.secondaryContainer,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 12.sp),
                     ),
                   ],
                 ))
@@ -131,7 +132,7 @@ class HomePageView extends StatelessWidget {
         width: 140.w,
         height: 150.h,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -161,15 +162,16 @@ class HomePageView extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.sp,
-                            color: AppThemeLight
-                                .instance.theme.colorScheme.onBackground),
+                            color: context.colors.secondaryContainer),
                       ),
                     ),
                     Expanded(
                       child: Text(
                         LocaleKeys.home_card_3_2_subtitle.tr(),
                         style: TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 12.sp),
+                            color: context.colors.secondaryContainer,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 12.sp),
                       ),
                     ),
                   ],
@@ -188,7 +190,7 @@ class HomePageView extends StatelessWidget {
         width: 140.w,
         height: 150.h,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: context.colors.background,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -214,8 +216,7 @@ class HomePageView extends StatelessWidget {
                       child: Text(
                         LocaleKeys.home_card_3_1_title.tr(),
                         style: TextStyle(
-                            color: AppThemeLight
-                                .instance.theme.colorScheme.onBackground,
+                            color: context.colors.secondaryContainer,
                             fontWeight: FontWeight.bold,
                             fontSize: 16.sp),
                       ),
@@ -224,7 +225,9 @@ class HomePageView extends StatelessWidget {
                       child: Text(
                         LocaleKeys.home_card_3_1_subtitle.tr(),
                         style: TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 11.sp),
+                            color: context.colors.secondaryContainer,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 11.sp),
                       ),
                     ),
                   ],
@@ -243,7 +246,7 @@ class HomePageView extends StatelessWidget {
         width: 200.w,
         height: 150.h,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.colors.background,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -269,13 +272,14 @@ class HomePageView extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color: AppThemeLight
-                              .instance.theme.colorScheme.onBackground),
+                          color: context.colors.secondaryContainer),
                     ),
                     Text(
                       LocaleKeys.home_card_3_0_subtitle.tr(),
                       style: TextStyle(
-                          fontStyle: FontStyle.italic, fontSize: 12.sp),
+                          fontStyle: FontStyle.italic,
+                          fontSize: 12.sp,
+                          color: context.colors.secondaryContainer),
                     ),
                   ],
                 ))
@@ -285,14 +289,14 @@ class HomePageView extends StatelessWidget {
     );
   }
 
-  Row headline2Text() {
+  Row headline2Text(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           LocaleKeys.home_heading2_headline1.tr(),
           style: TextStyle(
-              color: AppThemeLight.instance.theme.colorScheme.onBackground,
+              color: context.colors.secondaryContainer,
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               shadows: [
@@ -314,13 +318,13 @@ class HomePageView extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                backgroundColor:
-                    AppThemeLight.instance.theme.colorScheme.background),
+                backgroundColor: context.colors.background),
             onPressed: viewmodel.addTask,
             child: ListTile(
               title: Text(
                 LocaleKeys.home_card2_title.tr(),
                 style: TextStyle(
+                    color: context.colors.secondaryContainer,
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
                     shadows: [
@@ -333,7 +337,7 @@ class HomePageView extends StatelessWidget {
               trailing: Icon(
                 Icons.add,
                 size: 50.h,
-                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                color: context.colors.secondaryContainer,
               ),
             )));
   }
@@ -350,7 +354,7 @@ class HomePageView extends StatelessWidget {
               BoxShadow(
                   color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
             ],
-            color: AppThemeLight.instance.theme.colorScheme.background,
+            color: context.colors.background,
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(20)),
         child: Row(
@@ -362,6 +366,7 @@ class HomePageView extends StatelessWidget {
                 title: Text(
                   LocaleKeys.home_card1_title.tr(),
                   style: TextStyle(
+                      color: context.colors.secondaryContainer,
                       fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
                       shadows: [
@@ -395,21 +400,21 @@ class HomePageView extends StatelessWidget {
     );
   }
 
-  IconButton settingsIcon(HomePageViewModel viewmodel) {
+  IconButton settingsIcon(HomePageViewModel viewmodel, BuildContext context) {
     return IconButton(
         onPressed: viewmodel.settings,
         icon: Icon(
           Icons.menu,
           size: 30.w,
-          color: AppThemeLight.instance.theme.colorScheme.onSurface,
+          color: context.colors.secondaryContainer,
         ));
   }
 
-  Text title() {
+  Text title(BuildContext context) {
     return Text(
       LocaleKeys.splash_todo.tr(),
       style: TextStyle(
-          color: AppThemeLight.instance.theme.colorScheme.onBackground,
+          color: context.colors.secondaryContainer,
           fontSize: 32.sp,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic),
