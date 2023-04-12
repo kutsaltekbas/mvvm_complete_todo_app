@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/language_manager.dart';
 import '../../../core/constants/navigation/navigation_constants.dart';
 
@@ -60,15 +60,15 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppThemeLight
-                                .instance.theme.colorScheme.onSurface),
+                            backgroundColor:
+                                viewModelContext.colors.background),
                         onPressed: () {
                           Navigator.pop(viewModelContext);
                         },
                         child: Text(
                           LocaleKeys.home_addTaskDialog_back.tr(),
                           style: TextStyle(
-                              color: Colors.white,
+                              color: viewModelContext.colors.secondaryContainer,
                               fontSize: 18.sp,
                               fontWeight: FontWeight.bold),
                         )),
@@ -77,8 +77,8 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppThemeLight
-                                .instance.theme.colorScheme.onSurface),
+                            backgroundColor:
+                                viewModelContext.colors.background),
                         onPressed: () {
                           navigator.navigateToPage(
                               path: NavigationConstants.TASK_VIEW,
@@ -87,7 +87,7 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                         child: Text(
                           LocaleKeys.home_addTaskDialog_add.tr(),
                           style: TextStyle(
-                              color: Colors.white,
+                              color: viewModelContext.colors.secondaryContainer,
                               fontSize: 18.sp,
                               fontWeight: FontWeight.bold),
                         ))
@@ -106,27 +106,25 @@ abstract class _HomePageViewModelBase with Store, BaseViewModel {
                     controller: addTaskTitleController,
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor:
-                            AppThemeLight.instance.theme.colorScheme.onSurface),
+                        fillColor: viewModelContext.colors.background),
                   ),
                 ),
               ),
               SizedBox(height: 20.h),
             ],
             elevation: 10,
-            backgroundColor:
-                AppThemeLight.instance.theme.colorScheme.background,
+            backgroundColor: viewModelContext.colors.surface,
             icon: Icon(
               Icons.task_alt_rounded,
               size: 32.w,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: viewModelContext.colors.secondaryContainer,
             ),
             title: Text(
               LocaleKeys.home_addTaskDialog_title.tr(),
               style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
-                  color: AppThemeLight.instance.theme.colorScheme.onBackground),
+                  color: viewModelContext.colors.secondaryContainer),
             ),
           );
         });
