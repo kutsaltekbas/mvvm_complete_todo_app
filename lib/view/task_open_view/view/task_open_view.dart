@@ -32,8 +32,8 @@ class TaskOpenView extends StatelessWidget {
 
   Scaffold pageBody(TaskOpenViewModel viewmodel, BuildContext context) {
     return Scaffold(
-        backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
-        appBar: appbar(viewmodel),
+        backgroundColor: context.colors.surface,
+        appBar: appbar(viewmodel, context),
         body: body(context, viewmodel));
   }
 
@@ -57,7 +57,7 @@ class TaskOpenView extends StatelessWidget {
       padding: context.paddingNormal,
       height: 200.h,
       child: Card(
-        color: AppThemeLight.instance.theme.colorScheme.background,
+        color: context.colors.background,
         elevation: 3,
         child: Row(
           children: [
@@ -68,7 +68,12 @@ class TaskOpenView extends StatelessWidget {
                 padding: context.paddingLow,
                 width: 310.h,
                 height: 190.h,
-                child: Text(task.subtask!.tasks![index].toString())),
+                child: Text(
+                  task.subtask!.tasks![index].toString(),
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      color: context.colors.secondaryContainer),
+                )),
             SizedBox(
               width: 10.w,
             ),
@@ -107,9 +112,9 @@ class TaskOpenView extends StatelessWidget {
               ));
   }
 
-  AppBar appbar(TaskOpenViewModel viewmodel) {
+  AppBar appbar(TaskOpenViewModel viewmodel, BuildContext context) {
     return AppBar(
-      backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+      backgroundColor: context.colors.surface,
       title: Text(
         task.title.toString(),
         style: TextStyle(
@@ -121,7 +126,7 @@ class TaskOpenView extends StatelessWidget {
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
           size: 24.w,
-          color: AppThemeLight.instance.theme.colorScheme.onSurface,
+          color: context.colors.secondaryContainer,
         ),
         onPressed: viewmodel.goBack,
       ),

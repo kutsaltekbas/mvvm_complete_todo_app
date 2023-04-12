@@ -22,7 +22,7 @@ class TaskListView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-            backgroundColor: AppThemeLight.instance.theme.colorScheme.surface,
+            backgroundColor: context.colors.surface,
             body: pageBody(viewmodel, context));
       },
     );
@@ -41,13 +41,13 @@ class TaskListView extends StatelessWidget {
       child: Column(
         children: [
           backButtonAndTitle(context, viewmodel),
-          taskCards(viewmodel)
+          taskCards(viewmodel, context)
         ],
       ),
     );
   }
 
-  Expanded taskCards(TaskListViewModel viewmodel) {
+  Expanded taskCards(TaskListViewModel viewmodel, BuildContext context) {
     return Expanded(
       child: ListView.builder(
           physics: BouncingScrollPhysics(),
@@ -65,8 +65,7 @@ class TaskListView extends StatelessWidget {
                   width: context.width,
                   height: 250.h,
                   decoration: BoxDecoration(
-                      color:
-                          AppThemeLight.instance.theme.colorScheme.background,
+                      color: context.colors.background,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
@@ -120,7 +119,10 @@ class TaskListView extends StatelessWidget {
       contentPadding: context.paddingLow,
       title: Text(
         viewmodel.dataList[index].title.toString(),
-        style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            fontSize: 22.sp,
+            fontWeight: FontWeight.bold,
+            color: context.colors.secondaryContainer),
       ),
       subtitle: Text(
         viewmodel.dataList[index].description.toString(),
@@ -141,7 +143,7 @@ class TaskListView extends StatelessWidget {
             onPressed: viewmodel.returnHomePage,
             icon: Icon(
               Icons.arrow_back_ios_new_outlined,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
           ),
           SizedBox(
@@ -149,7 +151,10 @@ class TaskListView extends StatelessWidget {
           ),
           Text(
             LocaleKeys.task_taskListTitle.tr(),
-            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 24.sp,
+                fontWeight: FontWeight.bold,
+                color: context.colors.secondaryContainer),
           ),
         ],
       ),
