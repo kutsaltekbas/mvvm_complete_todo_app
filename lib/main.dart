@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mvvm_complete_todo_app/core/init/theme/theme_manager.dart';
 import 'package:mvvm_complete_todo_app/firebase_options.dart';
+import 'package:mvvm_complete_todo_app/view/on%20board/view/onboard_view.dart';
 import 'package:provider/provider.dart';
 
 import 'core/constants/app/app_constants.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            home: SplashScreenView(),
+            home: OnBoardView(),
             navigatorKey: NavigationService.instance.navigatorKey,
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             theme: context.theme,

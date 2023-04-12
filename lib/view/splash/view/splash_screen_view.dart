@@ -23,8 +23,7 @@ class SplashScreenView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-            backgroundColor:
-                AppThemeLight.instance.theme.colorScheme.background,
+            backgroundColor: context.colors.surface,
             body: Container(
               width: context.width,
               height: context.height,
@@ -34,13 +33,11 @@ class SplashScreenView extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 90.h,
-                      backgroundColor: AppThemeLight
-                          .instance.theme.colorScheme.onSurfaceVariant,
+                      backgroundColor: context.colors.secondaryContainer,
                       child: Icon(
                         Icons.task_alt_outlined,
                         size: 80.h,
-                        color:
-                            AppThemeLight.instance.theme.colorScheme.background,
+                        color: context.colors.background,
                       ),
                     ),
                     SizedBox(

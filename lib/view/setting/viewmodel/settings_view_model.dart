@@ -15,10 +15,18 @@ class SettingsViewModel = _SettingsViewModelBase with _$SettingsViewModel;
 abstract class _SettingsViewModelBase with Store, BaseViewModel {
   @observable
   ThemeManager themeManager = ThemeManager.instance;
+  @observable
+  ThemeEnum currentTheme = ThemeEnum.LIGHT;
 
   @action
   void changeTheme() {
-    themeManager.changeTheme(ThemeEnum.DARK);
+    if (currentTheme == ThemeEnum.LIGHT) {
+      themeManager.changeTheme(ThemeEnum.DARK);
+      currentTheme = ThemeEnum.DARK;
+    } else {
+      themeManager.changeTheme(ThemeEnum.LIGHT);
+      currentTheme = ThemeEnum.LIGHT;
+    }
   }
 
   @observable
