@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kartal/kartal.dart';
+import 'package:mvvm_complete_todo_app/core/extension/context_extension.dart';
 
 import '../../../core/base/view/base_view.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
@@ -21,12 +21,12 @@ class LoginView extends StatelessWidget {
       },
       onPageBuilder: (context, viewmodel) {
         return Scaffold(
-          backgroundColor: context.colorScheme.surface,
+          backgroundColor: context.colors.surface,
           body: SingleChildScrollView(
             child: Container(
               width: 390.w,
               height: 844.h,
-              color: AppThemeLight.instance.theme.colorScheme.surface,
+              color: context.colors.surface,
               //decoration: background(),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
                     height: 60.h,
                   ),
                   //backButton(viewmodel),
-                  topScreen(),
+                  topScreen(context),
                   SizedBox(
                     height: 80.h,
                   ),
@@ -69,10 +69,10 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Row topScreen() {
+  Row topScreen(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [welcomeBackText(), userPng()],
+      children: [welcomeBackText(context), userPng()],
     );
   }
 
@@ -104,7 +104,7 @@ class LoginView extends StatelessWidget {
               blurRadius: 20.h,
               spreadRadius: 10.h)
         ],
-        color: context.colorScheme.surface,
+        color: context.colors.background,
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
       child: Column(
@@ -114,15 +114,15 @@ class LoginView extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              emailTextField(viewmodel),
-              passwordTextField(viewmodel),
-              forgotPasswordButton(viewmodel)
+              emailTextField(viewmodel, context),
+              passwordTextField(viewmodel, context),
+              forgotPasswordButton(viewmodel, context)
             ],
           ),
           SizedBox(
             height: 150.h,
           ),
-          loginButton(viewmodel),
+          loginButton(viewmodel, context),
           //signUpButton(viewmodel),
           SizedBox(
             height: 10.h,
@@ -132,34 +132,33 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Row signUpButton(LoginViewModel viewmodel) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(LocaleKeys.login_dontAccount.tr() + " "),
-        GestureDetector(
-          onTap: viewmodel.signUp,
-          child: Text(
-            LocaleKeys.login_signUp.tr(),
-            style: TextStyle(
-                color: AppThemeLight.instance.theme.colorScheme.primary,
-                fontStyle: FontStyle.italic),
-          ),
-        ),
-      ],
-    );
-  }
+  // Row signUpButton(LoginViewModel viewmodel) {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     crossAxisAlignment: CrossAxisAlignment.center,
+  //     children: [
+  //       Text(LocaleKeys.login_dontAccount.tr() + " "),
+  //       GestureDetector(
+  //         onTap: viewmodel.signUp,
+  //         child: Text(
+  //           LocaleKeys.login_signUp.tr(),
+  //           style: TextStyle(
+  //               color: AppThemeLight.instance.theme.colorScheme.primary,
+  //               fontStyle: FontStyle.italic),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
-  Container loginButton(LoginViewModel viewmodel) {
+  Container loginButton(LoginViewModel viewmodel, BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       width: 300.w,
       height: 70.h,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  AppThemeLight.instance.theme.colorScheme.onSurface,
+              backgroundColor: context.colors.surface,
               elevation: 3,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20))),
@@ -168,12 +167,13 @@ class LoginView extends StatelessWidget {
           },
           child: Text(
             LocaleKeys.login_login.tr(),
-            style: TextStyle(fontSize: 20.sp),
+            style: TextStyle(
+                fontSize: 20.sp, color: context.colors.secondaryContainer),
           )),
     );
   }
 
-  Padding forgotPasswordButton(LoginViewModel viewmodel) {
+  Padding forgotPasswordButton(LoginViewModel viewmodel, BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 25.w),
       child: GestureDetector(
@@ -181,14 +181,13 @@ class LoginView extends StatelessWidget {
         child: Text(
           LocaleKeys.login_forgotText.tr(),
           style: TextStyle(
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
-              fontSize: 13.h),
+              color: context.colors.secondaryContainer, fontSize: 13.h),
         ),
       ),
     );
   }
 
-  Padding passwordTextField(LoginViewModel viewmodel) {
+  Padding passwordTextField(LoginViewModel viewmodel, BuildContext context) {
     return Padding(
         padding: EdgeInsets.fromLTRB(30.w, 10.h, 30.w, 10.h),
         child: TextField(
@@ -196,7 +195,6 @@ class LoginView extends StatelessWidget {
           obscureText: true,
           cursorColor: AppThemeLight.instance.theme.colorScheme.primary,
           decoration: InputDecoration(
-              prefixIconColor: AppThemeLight.instance.theme.colorScheme.primary,
               enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.transparent)),
               focusColor: AppThemeLight.instance.theme.colorScheme.primary,
@@ -207,24 +205,24 @@ class LoginView extends StatelessWidget {
               ),
               prefixIcon: Icon(
                 Icons.lock,
-                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+                color: context.colors.secondaryContainer,
               ),
               suffixIcon: Icon(Icons.remove_red_eye),
               filled: true,
-              fillColor: AppThemeLight.instance.theme.colorScheme.surface,
+              fillColor: context.colors.surface,
               hintText: LocaleKeys.login_password.tr(),
-              hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+              hintStyle:
+                  TextStyle(fontStyle: FontStyle.italic, fontSize: 15.sp)),
         ));
   }
 
-  Padding emailTextField(LoginViewModel viewmodel) {
+  Padding emailTextField(LoginViewModel viewmodel, BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(30.w, 60.h, 30.w, 10.h),
       child: TextField(
         controller: viewmodel.emailController,
-        cursorColor: AppThemeLight.instance.theme.colorScheme.primary,
         decoration: InputDecoration(
-            prefixIconColor: AppThemeLight.instance.theme.colorScheme.primary,
+            prefixIconColor: context.colors.background,
             enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.transparent)),
             focusColor: AppThemeLight.instance.theme.colorScheme.primary,
@@ -235,24 +233,24 @@ class LoginView extends StatelessWidget {
             ),
             prefixIcon: Icon(
               Icons.person,
-              color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              color: context.colors.secondaryContainer,
             ),
             filled: true,
-            fillColor: AppThemeLight.instance.theme.colorScheme.surface,
+            fillColor: context.colors.surface,
             hintText: LocaleKeys.login_email.tr(),
-            hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+            hintStyle: TextStyle(fontStyle: FontStyle.italic, fontSize: 15.sp)),
       ),
     );
   }
 
-  Widget welcomeBackText() {
+  Widget welcomeBackText(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(15.w, 30.h, 5.w, 10.h),
       child: Text(
         LocaleKeys.login_welcomeBack.tr(),
         maxLines: 2,
         style: TextStyle(
-          color: AppThemeLight.instance.theme.colorScheme.onBackground,
+          color: context.colors.secondaryContainer,
           fontSize: 50.sp,
           fontWeight: FontWeight.bold,
           shadows: <Shadow>[
