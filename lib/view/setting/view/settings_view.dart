@@ -35,7 +35,7 @@ class SettingsView extends StatelessWidget {
         children: [
           topPage(context, viewmodel),
           accountText(context),
-          changeThemeCard(context),
+          changeThemeCard(context,viewmodel),
           SizedBox(
             height: 20.h,
           ),
@@ -267,41 +267,44 @@ class SettingsView extends StatelessWidget {
     );
   }
 
-  Padding changeThemeCard(BuildContext context) {
+  Padding changeThemeCard(BuildContext context,SettingsViewModel viewmodel) {
     return Padding(
       padding: context.paddingNormalHorizontal,
-      child: Container(
-        width: context.width,
-        height: 70.h,
-        decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
-            ],
-            color: AppThemeLight.instance.theme.colorScheme.background,
-            borderRadius: BorderRadius.circular(10)),
-        child: ListTile(
-          leading: Icon(
-            Icons.lightbulb,
-            size: 24.w,
-            color: AppThemeLight.instance.theme.colorScheme.onSurface,
-          ),
-          trailing: IconButton(
-            icon: Icon(
-              Icons.arrow_forward_ios_rounded,
-              size: 24.h,
+      child: GestureDetector(
+        onTap: viewmodel.changeTheme,
+        child: Container(
+          width: context.width,
+          height: 70.h,
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12, offset: Offset(0, 3), blurRadius: 5)
+              ],
+              color: AppThemeLight.instance.theme.colorScheme.background,
+              borderRadius: BorderRadius.circular(10)),
+          child: ListTile(
+            leading: Icon(
+              Icons.lightbulb,
+              size: 24.w,
               color: AppThemeLight.instance.theme.colorScheme.onSurface,
             ),
-            onPressed: () {},
+            trailing: IconButton(
+              icon: Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 24.h,
+                color: AppThemeLight.instance.theme.colorScheme.onSurface,
+              ),
+              onPressed: () {},
+            ),
+            title: Text(
+              LocaleKeys.home_setting_core_themeTitle.tr(),
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            ),
+            // subtitle: Text(
+            //   LocaleKeys.home_setting_core_themeDesc.tr(),
+            //   style: TextStyle(fontSize: 13.sp),
+            // ),
           ),
-          title: Text(
-            LocaleKeys.home_setting_core_themeTitle.tr(),
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-          ),
-          // subtitle: Text(
-          //   LocaleKeys.home_setting_core_themeDesc.tr(),
-          //   style: TextStyle(fontSize: 13.sp),
-          // ),
         ),
       ),
     );

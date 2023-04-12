@@ -4,6 +4,7 @@ import 'package:mobx/mobx.dart';
 import 'package:mvvm_complete_todo_app/core/constants/enums/locale_keys_enum.dart';
 import 'package:mvvm_complete_todo_app/core/constants/navigation/navigation_constants.dart';
 import 'package:mvvm_complete_todo_app/core/init/lang/language_manager.dart';
+import 'package:mvvm_complete_todo_app/core/init/theme/theme_manager.dart';
 
 import '../../../core/base/model/base_view_model.dart';
 
@@ -12,6 +13,13 @@ part 'settings_view_model.g.dart';
 class SettingsViewModel = _SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class _SettingsViewModelBase with Store, BaseViewModel {
+  @observable
+  ThemeManager themeManager = ThemeManager.instance;
+  @action
+  void changeTheme() {
+    themeManager.changeTheme(ThemeEnum.LIGHT);
+  }
+
   @observable
   bool isLoading = false;
 
@@ -24,7 +32,7 @@ abstract class _SettingsViewModelBase with Store, BaseViewModel {
   void setContext(BuildContext context) => viewModelContext = context;
   @override
   Future<void> init() async {
-    eMail= localeManager.getStringValue(PreferencesKeys.E_MAIL);
+    eMail = localeManager.getStringValue(PreferencesKeys.E_MAIL);
   }
 
   @observable

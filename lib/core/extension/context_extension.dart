@@ -1,9 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../init/theme/theme_manager.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
+}
+extension ThemeContextExtension on BuildContext {
+  ThemeData get theme => watch<ThemeManager>().currentTheme;
 }
 
 extension MediaQueryExtension on BuildContext {
