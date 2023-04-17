@@ -26,3 +26,7 @@ Bu uygulama MVVM mimarisi kullanılarak oluşturulmuştur. Uygulama, e-posta ve 
  - firebase_database: ^10.1.0
  - firebase_core: ^2.9.0
 
+![Ekran görüntüsü 2023-04-17 125743](https://user-images.githubusercontent.com/78862742/232452273-03179f2f-ba8b-446a-be89-00f1d6e3a28b.png)
+![Ekran görüntüsü 2023-04-17 125817](https://user-images.githubusercontent.com/78862742/232452277-0ea605eb-02ad-48e9-9963-0b3de8d3751e.png)
+![Ekran görüntüsü 2023-04-17 125706](https://user-images.githubusercontent.com/78862742/232452280-9fb0804d-60b0-4321-af59-57a8caecc2a0.png)
+![Screenshot_1681725343](https://user-images.githubusercontent.com/78862742/232452285-e5c2e7cd-39a6-4b7c-9f76-171b9e276833.png)
